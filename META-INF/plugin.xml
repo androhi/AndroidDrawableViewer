@@ -1,12 +1,11 @@
 <idea-plugin version="2">
-  <id>com.yourcompany.unique.plugin.id</id>
+  <id>com.androhi.androiddrawableviewer</id>
   <name>AndroidDrawableViewer</name>
-  <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <version>0.1</version>
+  <vendor email="takahiro.1828@gmail.com" url="">androhi</vendor>
 
   <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      This plugin provide function that see drawable resource of the android project.
     ]]></description>
 
   <change-notes><![CDATA[
@@ -26,7 +25,7 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
-    <toolWindow anchor="right" canCloseContents="true" id="Android qDrawable Viewer" factoryClass="com.androhi.androiddrawableviewer.AndroidDrawableViewerToolWindowFactory" />
+    <toolWindow anchor="right" canCloseContents="true" id="Drawable Viewer" factoryClass="com.androhi.androiddrawableviewer.AndroidDrawableViewerToolWindowFactory" />
   </extensions>
 
   <application-components>
@@ -39,10 +38,6 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action id="com.androhi.androiddrawableviewer.AndroidDrawableViewerAction" class="com.androhi.androiddrawableviewer.AndroidDrawableViewerAction" text="AndroidDrawableViewer">
-      <add-to-group group-id="ToolsMenu" anchor="last"/>
-      <keyboard-shortcut keymap="$default" first-keystroke="shift meta D"/>
-    </action>
   </actions>
 
 </idea-plugin>
