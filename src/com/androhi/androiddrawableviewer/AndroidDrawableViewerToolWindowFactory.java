@@ -1,21 +1,23 @@
 package com.androhi.androiddrawableviewer;
 
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.DialogWrapper;
+import com.intellij.openapi.wm.ToolWindow;
+import com.intellij.openapi.wm.ToolWindowFactory;
+import com.intellij.ui.JBColor;
 import com.intellij.ui.components.JBList;
 import com.intellij.ui.components.JBScrollPane;
-import org.jetbrains.annotations.Nullable;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-public class AndroidDrawableViewerDialog extends DialogWrapper {
+public class AndroidDrawableViewerToolWindowFactory implements ToolWindowFactory {
 
     private static final String DEFAULT_RESOURCE_PATH = "/app/src/main/res";
     private static final String DRAWABLE_PREFIX = "drawable-";
@@ -27,21 +29,15 @@ public class AndroidDrawableViewerDialog extends DialogWrapper {
     private static final String PNG_SUFFIX = ".png";
     private static final String JPEG_SUFFIX = ".jpg";
 
-    private Project project;
-    private JPanel mainPanel;
-
     private File[] drawableHdpiFiles;
     private File[] drawableXhdpiFiles;
     private File[] drawableXxhdpiFiles;
     private File[] drawableXxxhdpiFiles;
     private ArrayList<String> fileNameList;
 
-    public AndroidDrawableViewerDialog(Project project) {
-        super(project, true);
-
-        this.project = project;
-        setTitle("Android Drawable Viewer");
-        setResizable(true);
+    @Override
+    public void createToolWindowContent(Project project, ToolWindow toolWindow) {
+        Component component = toolWindow.getComponent();
 
         String projectPath = project.getBasePath();
         String hdpiPath = projectPath + DEFAULT_RESOURCE_PATH + PATH_SEPARATOR + DRAWABLE_PREFIX + DRAWABLE_HDPI;
@@ -118,7 +114,7 @@ public class AndroidDrawableViewerDialog extends DialogWrapper {
                 iconLabel.setIcon(icon);
                 iconLabel.setText(fileName);
                 iconLabel.setHorizontalAlignment(JLabel.LEFT);
-                iconLabel.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 18));
+                iconLabel.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 14));
                 iconLabel.setIconTextGap(12);
                 itemPanel.add(iconLabel);
 
@@ -141,9 +137,8 @@ public class AndroidDrawableViewerDialog extends DialogWrapper {
         // create scroll pane
         JBScrollPane scrollPane = new JBScrollPane(itemList);
         scrollPane.setPreferredSize(new Dimension(640, 320));
-        mainPanel.add(scrollPane);
 
-        init();
+        component.getParent().add(scrollPane);
     }
 
     private void addFileList(File[] files) {
@@ -178,17 +173,11 @@ public class AndroidDrawableViewerDialog extends DialogWrapper {
         ImageIcon icon = null;
         try {
             Image image = ImageIO.read(imageFile);
-            Image resizedImage = image.getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            Image resizedImage = image.getScaledInstance(24, 24, Image.SCALE_DEFAULT);
             icon = new ImageIcon(resizedImage);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return icon;
-    }
-
-    @Nullable
-    @Override
-    protected JComponent createCenterPanel() {
-        return mainPanel;
     }
 }
