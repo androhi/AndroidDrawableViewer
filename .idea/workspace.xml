@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="beca3ddb-b3c7-4288-a453-e4517be2df60" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AndroidDrawableViewer/com/androhi/androiddrawableviewer/AndroidDrawableViewerAction.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AndroidDrawableViewer/com/androhi/androiddrawableviewer/AndroidDrawableViewerDialog.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/AndroidDrawableViewer/com/androhi/androiddrawableviewer/AndroidDrawableViewerToolWindowFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/androhi/androiddrawableviewer/AndroidDrawableViewerAction.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/androhi/androiddrawableviewer/AndroidDrawableViewerDialog.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/androhi/androiddrawableviewer/AndroidDrawableViewerDialog.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/META-INF/plugin.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/screenshot.png" afterPath="$PROJECT_DIR$/screenshot.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AndroidDrawableViewer.iws" />
@@ -225,6 +219,7 @@
       <recent name="$USER_HOME$/IdeaProjects/AndroidDrawableViewer/src/com/androhi/androiddrawableviewer/image" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/.." />
     </key>
   </component>
@@ -589,6 +584,11 @@
             <element signature="imports" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshot.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
