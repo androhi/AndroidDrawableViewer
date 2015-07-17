@@ -38,6 +38,7 @@
 
   <actions>
     <!-- Add your actions here -->
+    <action class="com.androhi.androiddrawableviewer.EditTargetResDirAction" id="EditTargetResDir" />
   </actions>
 
 </idea-plugin>

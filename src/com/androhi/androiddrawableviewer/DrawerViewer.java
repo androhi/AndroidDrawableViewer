@@ -7,7 +7,6 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.SimpleToolWindowPanel;
 import com.intellij.ui.ScrollPaneFactory;
 import com.intellij.ui.components.JBList;
-import com.intellij.util.xml.ui.DomCollectionControl;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -48,7 +47,7 @@ public class DrawerViewer extends SimpleToolWindowPanel {
 
     private JComponent createToolbarPanel() {
         final DefaultActionGroup actionGroup = new DefaultActionGroup();
-        actionGroup.add(new DomCollectionControl.AddAction());
+        actionGroup.add(new EditTargetResDirAction());
         final ActionToolbar actionToolbar = ActionManager.getInstance().createActionToolbar("AndroidDrawableViewer", actionGroup, true);
         return actionToolbar.getComponent();
     }
