@@ -54,10 +54,20 @@ public class DrawerViewer extends SimpleToolWindowPanel {
 
     private JScrollPane createContentPanel() {
         String projectPath = project.getBasePath();
-        String hdpiPath = projectPath + DEFAULT_RESOURCE_PATH + PATH_SEPARATOR + DRAWABLE_PREFIX + DRAWABLE_HDPI;
-        String xhdpiPath = projectPath + DEFAULT_RESOURCE_PATH + PATH_SEPARATOR + DRAWABLE_PREFIX + DRAWABLE_XHDPI;
-        String xxhdpiPath = projectPath + DEFAULT_RESOURCE_PATH + PATH_SEPARATOR + DRAWABLE_PREFIX + DRAWABLE_XXHDPI;
-        String xxxhdpiPath = projectPath + DEFAULT_RESOURCE_PATH + PATH_SEPARATOR + DRAWABLE_PREFIX + DRAWABLE_XXXHDPI;
+
+        String resDirPath = projectPath + DEFAULT_RESOURCE_PATH;
+        PluginConfig config = PluginConfig.getInstance(project);
+        if (config != null) {
+            String savedResDirPath = config.getResDir();
+            if (savedResDirPath != null) {
+                resDirPath = savedResDirPath;
+            }
+        }
+
+        String hdpiPath = resDirPath + PATH_SEPARATOR + DRAWABLE_PREFIX + DRAWABLE_HDPI;
+        String xhdpiPath = resDirPath + PATH_SEPARATOR + DRAWABLE_PREFIX + DRAWABLE_XHDPI;
+        String xxhdpiPath = resDirPath + PATH_SEPARATOR + DRAWABLE_PREFIX + DRAWABLE_XXHDPI;
+        String xxxhdpiPath = resDirPath + PATH_SEPARATOR + DRAWABLE_PREFIX + DRAWABLE_XXXHDPI;
 
         File hdpiDir = new File(hdpiPath);
         File xhdpiDir = new File(xhdpiPath);
