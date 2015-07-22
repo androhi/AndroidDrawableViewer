@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-public class DrawerViewer extends SimpleToolWindowPanel {
+public class DrawableViewer extends SimpleToolWindowPanel {
 
     public static final String TOOL_WINDOW_ID = "DrawableViewer";
 
@@ -39,7 +39,7 @@ public class DrawerViewer extends SimpleToolWindowPanel {
 
     private Project project;
 
-    public DrawerViewer(final Project project) {
+    public DrawableViewer(final Project project) {
         super(true, true);
         this.project = project;
 

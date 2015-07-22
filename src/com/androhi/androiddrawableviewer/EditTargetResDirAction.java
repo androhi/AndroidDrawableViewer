@@ -38,10 +38,10 @@ public class EditTargetResDirAction extends AnAction {
     }
 
     private void resetContent(Project project) {
-        DrawerViewer drawerViewer = new DrawerViewer(project);
+        DrawableViewer drawableViewer = new DrawableViewer(project);
         ContentManager contentManager = ToolWindowManager.getInstance(project)
-                .getToolWindow(DrawerViewer.TOOL_WINDOW_ID).getContentManager();
-        Content content = contentManager.getFactory().createContent(drawerViewer, null, false);
+                .getToolWindow(DrawableViewer.TOOL_WINDOW_ID).getContentManager();
+        Content content = contentManager.getFactory().createContent(drawableViewer, null, false);
 
         contentManager.removeAllContents(true);
         contentManager.addContent(content);

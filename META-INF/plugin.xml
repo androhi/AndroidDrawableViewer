@@ -1,16 +1,15 @@
 <idea-plugin version="2">
   <id>com.androhi.androiddrawableviewer</id>
   <name>AndroidDrawableViewer</name>
-  <version>0.1</version>
-  <vendor email="takahiro.1828@gmail.com" url="">androhi</vendor>
+  <version>1.0</version>
+  <vendor email="takahiro.1828@gmail.com" url="https://github.com/androhi/AndroidDrawableViewer">AndroidDrawableViewer</vendor>
 
   <description><![CDATA[
       This plugin provide function that see drawable resource of the android project.
     ]]></description>
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+      v1.0 : first release.
     ]]>
   </change-notes>
 

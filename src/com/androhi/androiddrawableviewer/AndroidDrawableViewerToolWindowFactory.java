@@ -10,7 +10,7 @@ public class AndroidDrawableViewerToolWindowFactory implements ToolWindowFactory
 
     @Override
     public void createToolWindowContent(Project project, ToolWindow toolWindow) {
-        DrawerViewer viewer = new DrawerViewer(project);
+        DrawableViewer viewer = new DrawableViewer(project);
         final ContentManager contentManager = toolWindow.getContentManager();
         final Content content = contentManager.getFactory().createContent(viewer, null, false);
         contentManager.addContent(content);
