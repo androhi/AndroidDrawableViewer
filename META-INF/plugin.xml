@@ -2,7 +2,7 @@
   <id>com.androhi.androiddrawableviewer</id>
   <name>AndroidDrawableViewer</name>
   <version>1.0</version>
-  <vendor email="takahiro.1828@gmail.com" url="https://github.com/androhi/AndroidDrawableViewer">AndroidDrawableViewer</vendor>
+  <vendor email="takahiro.1828@gmail.com" url="https://github.com/androhi/AndroidDrawableViewer">androhi</vendor>
 
   <description><![CDATA[
       This plugin provide function that see drawable resource of the android project.
@@ -13,14 +13,10 @@
     ]]>
   </change-notes>
 
-  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
   <idea-version since-build="131"/>
 
-  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
-       on how to target different products -->
-  <!-- uncomment to enable plugin in all products
-  <depends>com.intellij.modules.lang</depends>
-  -->
+  <depends>com.intellij.modules.java</depends>
+  <depends>org.jetbrains.android</depends>
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
