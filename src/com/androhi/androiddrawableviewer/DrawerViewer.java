@@ -19,6 +19,8 @@ import java.util.Vector;
 
 public class DrawerViewer extends SimpleToolWindowPanel {
 
+    public static final String TOOL_WINDOW_ID = "DrawableViewer";
+
     private static final String DEFAULT_RESOURCE_PATH = "/app/src/main/res";
     private static final String DRAWABLE_PREFIX = "drawable-";
     private static final String DRAWABLE_HDPI = "hdpi";
@@ -157,10 +159,6 @@ public class DrawerViewer extends SimpleToolWindowPanel {
         itemList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         itemList.setLayoutOrientation(JList.VERTICAL);
         itemList.setCellRenderer(new ImageListCellRenderer());
-
-        // create scroll pane
-//        JBScrollPane scrollPane = new JBScrollPane(itemList);
-//        scrollPane.setPreferredSize(new Dimension(640, 320));
 
         return ScrollPaneFactory.createScrollPane(itemList);
     }

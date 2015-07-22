@@ -25,7 +25,7 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
-    <toolWindow anchor="right" canCloseContents="true" id="Drawable Viewer"
+    <toolWindow anchor="right" canCloseContents="true" id="DrawableViewer"
                 factoryClass="com.androhi.androiddrawableviewer.AndroidDrawableViewerToolWindowFactory" />
     <projectService serviceInterface="com.androhi.androiddrawableviewer.PluginConfig"
                     serviceImplementation="com.androhi.androiddrawableviewer.PluginConfig" />

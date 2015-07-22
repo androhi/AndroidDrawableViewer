@@ -8,6 +8,9 @@ import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileManager;
+import com.intellij.openapi.wm.ToolWindowManager;
+import com.intellij.ui.content.Content;
+import com.intellij.ui.content.ContentManager;
 
 public class EditTargetResDirAction extends AnAction {
 
@@ -30,7 +33,18 @@ public class EditTargetResDirAction extends AnAction {
         final VirtualFile file = FileChooser.chooseFile(descriptor, project, selectDir);
         if (file != null) {
             pluginConfig.setResDir(file.getPath());
+            resetContent(project);
         }
+    }
+
+    private void resetContent(Project project) {
+        DrawerViewer drawerViewer = new DrawerViewer(project);
+        ContentManager contentManager = ToolWindowManager.getInstance(project)
+                .getToolWindow(DrawerViewer.TOOL_WINDOW_ID).getContentManager();
+        Content content = contentManager.getFactory().createContent(drawerViewer, null, false);
+
+        contentManager.removeAllContents(true);
+        contentManager.addContent(content);
     }
 
     @Override
