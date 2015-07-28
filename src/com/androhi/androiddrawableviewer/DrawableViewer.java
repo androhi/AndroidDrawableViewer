@@ -12,12 +12,16 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-public class DrawableViewer extends SimpleToolWindowPanel {
+public class DrawableViewer extends SimpleToolWindowPanel implements ActionListener {
 
     public static final String TOOL_WINDOW_ID = "DrawableViewer";
 
@@ -30,6 +34,9 @@ public class DrawableViewer extends SimpleToolWindowPanel {
     private static final String PATH_SEPARATOR = "/";
     private static final String PNG_SUFFIX = ".png";
     private static final String JPEG_SUFFIX = ".jpg";
+
+    private static final String MENU_ITEM_SHOW = "Show";
+    private static final String MENU_ITEM_DETAIL = "Detail";
 
     private File[] drawableHdpiFiles;
     private File[] drawableXhdpiFiles;
@@ -159,6 +166,7 @@ public class DrawableViewer extends SimpleToolWindowPanel {
         itemList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         itemList.setLayoutOrientation(JList.VERTICAL);
         itemList.setCellRenderer(new ImageListCellRenderer());
+        itemList.addMouseListener(mouseListener);
 
         return ScrollPaneFactory.createScrollPane(itemList);
     }
@@ -202,4 +210,40 @@ public class DrawableViewer extends SimpleToolWindowPanel {
         }
         return icon;
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Logger.debug("action : " + e.getActionCommand());
+    }
+
+    private MouseListener mouseListener = new MouseListener() {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            JPopupMenu popupMenu = new JPopupMenu();
+
+            JMenuItem showMenu = new JMenuItem(MENU_ITEM_SHOW);
+            showMenu.addActionListener(DrawableViewer.this);
+            popupMenu.add(showMenu);
+
+            // todo: detailクリックで詳細ビューダイアログを表示する
+
+            popupMenu.show(e.getComponent(), e.getX(), e.getY());
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    };
 }
