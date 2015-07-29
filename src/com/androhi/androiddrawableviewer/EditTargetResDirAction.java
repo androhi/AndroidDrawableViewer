@@ -40,7 +40,7 @@ public class EditTargetResDirAction extends AnAction {
     private void resetContent(Project project) {
         DrawableViewer drawableViewer = new DrawableViewer(project);
         ContentManager contentManager = ToolWindowManager.getInstance(project)
-                .getToolWindow(DrawableViewer.TOOL_WINDOW_ID).getContentManager();
+                .getToolWindow(Constants.TOOL_WINDOW_ID).getContentManager();
         Content content = contentManager.getFactory().createContent(drawableViewer, null, false);
 
         contentManager.removeAllContents(true);
