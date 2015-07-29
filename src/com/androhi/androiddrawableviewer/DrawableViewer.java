@@ -8,7 +8,6 @@ import com.intellij.openapi.ui.SimpleToolWindowPanel;
 import com.intellij.ui.ScrollPaneFactory;
 import com.intellij.ui.components.JBList;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -17,23 +16,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Vector;
+import java.util.*;
 
 public class DrawableViewer extends SimpleToolWindowPanel implements ActionListener {
-
-    public static final String TOOL_WINDOW_ID = "DrawableViewer";
-
-    private static final String DEFAULT_RESOURCE_PATH = "/app/src/main/res";
-    private static final String DRAWABLE_PREFIX = "drawable-";
-    private static final String DRAWABLE_HDPI = "hdpi";
-    private static final String DRAWABLE_XHDPI = "xhdpi";
-    private static final String DRAWABLE_XXHDPI = "xxhdpi";
-    private static final String DRAWABLE_XXXHDPI = "xxxhdpi";
-    private static final String PATH_SEPARATOR = "/";
-    private static final String PNG_SUFFIX = ".png";
-    private static final String JPEG_SUFFIX = ".jpg";
 
     private static final String MENU_ITEM_SHOW = "Show";
     private static final String MENU_ITEM_DETAIL = "Detail";
@@ -43,12 +28,16 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
     private File[] drawableXxhdpiFiles;
     private File[] drawableXxxhdpiFiles;
     private ArrayList<String> fileNameList;
+    private ArrayList<DrawableModel> drawableModelList;
+    private JBList itemList;
 
     private Project project;
 
     public DrawableViewer(final Project project) {
         super(true, true);
         this.project = project;
+
+        drawableModelList = new ArrayList<DrawableModel>();
 
         setToolbar(createToolbarPanel());
         setContent(createContentPanel());
@@ -64,7 +53,7 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
     private JScrollPane createContentPanel() {
         String projectPath = project.getBasePath();
 
-        String resDirPath = projectPath + DEFAULT_RESOURCE_PATH;
+        String resDirPath = projectPath + Constants.DEFAULT_RESOURCE_PATH;
         PluginConfig config = PluginConfig.getInstance(project);
         if (config != null) {
             String savedResDirPath = config.getResDir();
@@ -73,10 +62,11 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
             }
         }
 
-        String hdpiPath = resDirPath + PATH_SEPARATOR + DRAWABLE_PREFIX + DRAWABLE_HDPI;
-        String xhdpiPath = resDirPath + PATH_SEPARATOR + DRAWABLE_PREFIX + DRAWABLE_XHDPI;
-        String xxhdpiPath = resDirPath + PATH_SEPARATOR + DRAWABLE_PREFIX + DRAWABLE_XXHDPI;
-        String xxxhdpiPath = resDirPath + PATH_SEPARATOR + DRAWABLE_PREFIX + DRAWABLE_XXXHDPI;
+        String baseDirPath = resDirPath + Constants.PATH_SEPARATOR + Constants.DRAWABLE_PREFIX;
+        String hdpiPath = baseDirPath + Constants.DRAWABLE_HDPI;
+        String xhdpiPath = baseDirPath + Constants.DRAWABLE_XHDPI;
+        String xxhdpiPath = baseDirPath + Constants.DRAWABLE_XXHDPI;
+        String xxxhdpiPath = baseDirPath + Constants.DRAWABLE_XXXHDPI;
 
         File hdpiDir = new File(hdpiPath);
         File xhdpiDir = new File(xhdpiPath);
@@ -104,11 +94,15 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
             itemPanel.setLayout(layout);
             itemPanel.setBorder(new EmptyBorder(10, 20, 0, 20));
 
+            // create model info
+            ArrayList<String> densityList = new ArrayList<String>();
+
             if (drawableHdpiFiles != null) {
                 for (File file : drawableHdpiFiles) {
                     if (file.getName().equals(fileName)) {
-                        dirName += DRAWABLE_HDPI;
+                        dirName += Constants.DRAWABLE_HDPI;
                         filePath = file.getPath();
+                        densityList.add(Constants.DRAWABLE_HDPI);
                     }
                 }
             }
@@ -116,8 +110,9 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
                 for (File file : drawableXhdpiFiles) {
                     if (file.getName().equals(fileName)) {
                         if (dirName.length() > 0) dirName += " / ";
-                        dirName += DRAWABLE_XHDPI;
+                        dirName += Constants.DRAWABLE_XHDPI;
                         filePath = file.getPath();
+                        densityList.add(Constants.DRAWABLE_XHDPI);
                     }
                 }
             }
@@ -125,8 +120,9 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
                 for (File file : drawableXxhdpiFiles) {
                     if (file.getName().equals(fileName)) {
                         if (dirName.length() > 0) dirName += " / ";
-                        dirName += DRAWABLE_XXHDPI;
+                        dirName += Constants.DRAWABLE_XXHDPI;
                         filePath = file.getPath();
+                        densityList.add(Constants.DRAWABLE_XXHDPI);
                     }
                 }
             }
@@ -134,14 +130,15 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
                 for (File file : drawableXxxhdpiFiles) {
                     if (file.getName().equals(fileName)) {
                         if (dirName.length() > 0) dirName += " / ";
-                        dirName += DRAWABLE_XXXHDPI;
+                        dirName += Constants.DRAWABLE_XXXHDPI;
                         filePath = file.getPath();
+                        densityList.add(Constants.DRAWABLE_XXXHDPI);
                     }
                 }
             }
 
             // create row of the list
-            Icon icon = createIcon(filePath);
+            Icon icon = IconUtils.createSmallIcon(filePath);
             if (icon != null) {
                 // set image and name
                 iconLabel.setIcon(icon);
@@ -159,10 +156,15 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
 
                 panels.add(itemPanel);
             }
+
+            if (icon != null) {
+                DrawableModel model = new DrawableModel(fileName, resDirPath, densityList);
+                drawableModelList.add(model);
+            }
         }
 
         // create list
-        JBList itemList = new JBList(panels);
+        itemList = new JBList(panels);
         itemList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         itemList.setLayoutOrientation(JList.VERTICAL);
         itemList.setCellRenderer(new ImageListCellRenderer());
@@ -186,7 +188,7 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
     }
 
     private boolean isImageFile(String name) {
-        return (name.endsWith(PNG_SUFFIX) || name.endsWith(JPEG_SUFFIX));
+        return (name.endsWith(Constants.PNG_SUFFIX) || name.endsWith(Constants.JPEG_SUFFIX));
     }
 
     private boolean isSameFile(String name) {
@@ -198,22 +200,12 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
         return false;
     }
 
-    private Icon createIcon(String iconFile) {
-        File imageFile = new File(iconFile);
-        ImageIcon icon = null;
-        try {
-            Image image = ImageIO.read(imageFile);
-            Image resizedImage = image.getScaledInstance(24, 24, Image.SCALE_DEFAULT);
-            icon = new ImageIcon(resizedImage);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return icon;
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
-        Logger.debug("action : " + e.getActionCommand());
+        //String cmd = e.getActionCommand();
+        DrawableModel drawableModel = drawableModelList.get(itemList.getMinSelectionIndex());
+        DetailDisplayDialog dialog = new DetailDisplayDialog(project, drawableModel);
+        dialog.show();
     }
 
     private MouseListener mouseListener = new MouseListener() {
