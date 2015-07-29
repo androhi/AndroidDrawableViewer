@@ -1,8 +1,24 @@
 # Android Drawable Viewer
 
-This plugin provide the function that see drawable resources of the android project.
+This plugin provide the function that see drawable resources of the android project, support for IntelliJ IDEA and Android Studio.
+
+The page of this plugin is [here](https://plugins.jetbrains.com/plugin/7874?pr=).
 
 ![screenshot](./screenshot.png)
+
+# Installation
+
+## 1. From JetBrains Plugin Repository
+
+1. Launch IDE and select "Preferences > Plugins > Browse repositories...".
+2. Search "Android Drawable Viewer".
+3. Click "Install plugin" button.
+
+## 2. Manually
+
+1. Download the latest release from [here](https://github.com/androhi/AndroidDrawableViewer/blob/master/AndroidDrawableViewer.zip?raw=true).
+2. Launch IDE and select "Preferences > Plugins > Install plugin from disk..."
+3. Choose `AndroidDrawableViewer.zip` file.
 
 # License
 
