@@ -1,4 +1,4 @@
-# Android Drawable Viewer beta
+# Android Drawable Viewer
 
 This plugin provide the function that see drawable resources of the android project.
 
