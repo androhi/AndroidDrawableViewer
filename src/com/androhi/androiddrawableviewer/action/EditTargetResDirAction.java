@@ -1,5 +1,8 @@
-package com.androhi.androiddrawableviewer;
+package com.androhi.androiddrawableviewer.action;
 
+import com.androhi.androiddrawableviewer.Constants;
+import com.androhi.androiddrawableviewer.PluginConfig;
+import com.androhi.androiddrawableviewer.form.DrawableViewer;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;

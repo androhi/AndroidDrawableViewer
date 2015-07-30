@@ -1,5 +1,8 @@
-package com.androhi.androiddrawableviewer;
+package com.androhi.androiddrawableviewer.form;
 
+import com.androhi.androiddrawableviewer.Constants;
+import com.androhi.androiddrawableviewer.model.DrawableModel;
+import com.androhi.androiddrawableviewer.util.IconUtils;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.ui.JBColor;

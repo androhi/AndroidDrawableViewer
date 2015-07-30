@@ -1,4 +1,4 @@
-package com.androhi.androiddrawableviewer;
+package com.androhi.androiddrawableviewer.form;
 
 import com.intellij.ui.JBColor;
 

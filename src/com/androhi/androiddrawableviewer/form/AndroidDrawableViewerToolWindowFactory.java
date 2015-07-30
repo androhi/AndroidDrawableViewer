@@ -1,4 +1,4 @@
-package com.androhi.androiddrawableviewer;
+package com.androhi.androiddrawableviewer.form;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;

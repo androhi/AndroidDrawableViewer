@@ -22,7 +22,7 @@
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
     <toolWindow anchor="right" canCloseContents="true" id="DrawableViewer"
-                factoryClass="com.androhi.androiddrawableviewer.AndroidDrawableViewerToolWindowFactory" />
+                factoryClass="com.androhi.androiddrawableviewer.form.AndroidDrawableViewerToolWindowFactory" />
     <projectService serviceInterface="com.androhi.androiddrawableviewer.PluginConfig"
                     serviceImplementation="com.androhi.androiddrawableviewer.PluginConfig" />
   </extensions>
@@ -37,7 +37,7 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action class="com.androhi.androiddrawableviewer.EditTargetResDirAction" id="EditTargetResDir" />
+    <action class="com.androhi.androiddrawableviewer.action.EditTargetResDirAction" id="EditTargetResDir" />
   </actions>
 
 </idea-plugin>

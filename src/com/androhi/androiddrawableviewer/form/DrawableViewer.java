@@ -1,5 +1,9 @@
-package com.androhi.androiddrawableviewer;
+package com.androhi.androiddrawableviewer.form;
 
+import com.androhi.androiddrawableviewer.*;
+import com.androhi.androiddrawableviewer.action.EditTargetResDirAction;
+import com.androhi.androiddrawableviewer.model.DrawableModel;
+import com.androhi.androiddrawableviewer.util.IconUtils;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionToolbar;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
