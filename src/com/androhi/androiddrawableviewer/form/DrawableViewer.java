@@ -4,11 +4,13 @@ import com.androhi.androiddrawableviewer.*;
 import com.androhi.androiddrawableviewer.action.EditTargetResDirAction;
 import com.androhi.androiddrawableviewer.model.DrawableModel;
 import com.androhi.androiddrawableviewer.util.IconUtils;
+import com.intellij.designer.designSurface.feedbacks.LineMarginBorder;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionToolbar;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.SimpleToolWindowPanel;
+import com.intellij.ui.JBColor;
 import com.intellij.ui.ScrollPaneFactory;
 import com.intellij.ui.components.JBList;
 
@@ -96,7 +98,7 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
             JLabel dirLabel = new JLabel();
             GridLayout layout = new GridLayout(2, 1, 0, 4);
             itemPanel.setLayout(layout);
-            itemPanel.setBorder(new EmptyBorder(10, 20, 0, 20));
+            itemPanel.setBorder(new EmptyBorder(10, 20, 10, 20));
 
             // create model info
             ArrayList<String> densityList = new ArrayList<String>();

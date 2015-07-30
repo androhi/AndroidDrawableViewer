@@ -11,7 +11,8 @@ public class ImageListCellRenderer implements ListCellRenderer {
         if (value instanceof JPanel) {
             Component component = (Component) value;
             component.setForeground(JBColor.white);
-            component.setBackground(isSelected ? UIManager.getColor("Table.focusCellForeground") : JBColor.background());
+            Color normalBackground = index % 2 == 0 ? JBColor.border() : JBColor.background();
+            component.setBackground(isSelected ? UIManager.getColor("List.selectionBackground") : normalBackground);
             return component;
         } else {
             return new JLabel("");
