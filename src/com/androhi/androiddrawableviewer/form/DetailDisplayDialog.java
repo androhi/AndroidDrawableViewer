@@ -13,6 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.SoftBevelBorder;
 import java.awt.*;
@@ -51,6 +52,7 @@ public class DetailDisplayDialog extends DialogWrapper {
             JLabel densityLabel = new JLabel();
             densityLabel.setText(density);
             densityLabel.setHorizontalAlignment(JLabel.CENTER);
+            densityLabel.setBorder(new EmptyBorder(0, 0, 4, 0));
 
             // Image
             JLabel iconLabel = new JLabel();
@@ -66,7 +68,7 @@ public class DetailDisplayDialog extends DialogWrapper {
             String e2 = oldComponent == null ? SpringLayout.WEST : SpringLayout.EAST;
             Component c2 = oldComponent == null ? mainPanel : oldComponent;
             layout.putConstraint(SpringLayout.NORTH, panel, 8, SpringLayout.NORTH, mainPanel);
-            layout.putConstraint(SpringLayout.WEST, panel, 8, e2, c2);
+            layout.putConstraint(SpringLayout.WEST, panel, 16, e2, c2);
             mainPanel.add(panel);
 
             oldComponent = panel;
