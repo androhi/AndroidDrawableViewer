@@ -3,13 +3,18 @@ package com.androhi.androiddrawableviewer.form;
 import com.androhi.androiddrawableviewer.Constants;
 import com.androhi.androiddrawableviewer.model.DrawableModel;
 import com.androhi.androiddrawableviewer.util.IconUtils;
+import com.intellij.designer.designSurface.feedbacks.LineMarginBorder;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.ui.JBColor;
+import com.intellij.ui.plaf.beg.BegBorders;
+import com.intellij.util.ui.MacUIUtil;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.border.SoftBevelBorder;
 import java.awt.*;
 import java.util.List;
 
@@ -46,7 +51,6 @@ public class DetailDisplayDialog extends DialogWrapper {
             JLabel densityLabel = new JLabel();
             densityLabel.setText(density);
             densityLabel.setHorizontalAlignment(JLabel.CENTER);
-            densityLabel.setBorder(new LineBorder(JBColor.BLACK, 1));
 
             // Image
             JLabel iconLabel = new JLabel();
@@ -54,7 +58,7 @@ public class DetailDisplayDialog extends DialogWrapper {
                     Constants.DRAWABLE_PREFIX + density + Constants.PATH_SEPARATOR + fileName;
             Icon icon = IconUtils.createOriginalIcon(filePath);
             iconLabel.setIcon(icon);
-            iconLabel.setBorder(new LineBorder(JBColor.BLACK, 1));
+            iconLabel.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));
 
             panel.add(densityLabel, BorderLayout.PAGE_START);
             panel.add(iconLabel, BorderLayout.CENTER);
