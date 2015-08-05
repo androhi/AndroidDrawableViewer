@@ -4,23 +4,18 @@ import com.androhi.androiddrawableviewer.*;
 import com.androhi.androiddrawableviewer.action.EditTargetResDirAction;
 import com.androhi.androiddrawableviewer.model.DrawableModel;
 import com.androhi.androiddrawableviewer.util.IconUtils;
-import com.intellij.designer.designSurface.feedbacks.LineMarginBorder;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionToolbar;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.SimpleToolWindowPanel;
-import com.intellij.ui.JBColor;
 import com.intellij.ui.ScrollPaneFactory;
 import com.intellij.ui.components.JBList;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.io.File;
 import java.util.*;
 
@@ -175,6 +170,7 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
         itemList.setLayoutOrientation(JList.VERTICAL);
         itemList.setCellRenderer(new ImageListCellRenderer());
         itemList.addMouseListener(mouseListener);
+        itemList.addKeyListener(keyListener);
 
         return ScrollPaneFactory.createScrollPane(itemList);
     }
@@ -206,12 +202,16 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
         return false;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        //String cmd = e.getActionCommand();
+    private void showDetailDialog() {
         DrawableModel drawableModel = drawableModelList.get(itemList.getMinSelectionIndex());
         DetailDisplayDialog dialog = new DetailDisplayDialog(project, drawableModel);
         dialog.show();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //String cmd = e.getActionCommand();
+        showDetailDialog();
     }
 
     private MouseListener mouseListener = new MouseListener() {
@@ -242,6 +242,23 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
 
         @Override
         public void mouseExited(MouseEvent e) {
+        }
+    };
+
+    private KeyListener keyListener = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                showDetailDialog();
+            }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
         }
     };
 }
