@@ -41,7 +41,7 @@ public class SettingsDialog extends DialogWrapper {
 
         String savedResDir = pluginConfig.getResDir();
         if (savedResDir == null) {
-            savedResDir = project.getBasePath();
+            savedResDir = project.getBasePath() + Constants.DEFAULT_RESOURCE_PATH;
         }
 
         resDirText.setText(savedResDir);
