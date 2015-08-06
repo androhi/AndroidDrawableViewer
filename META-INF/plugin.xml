@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.androhi.androiddrawableviewer</id>
   <name>Android Drawable Viewer</name>
-  <version>1.1</version>
+  <version>1.2</version>
   <vendor email="takahiro.1828@gmail.com" url="https://github.com/androhi/AndroidDrawableViewer">androhi</vendor>
 
   <description><![CDATA[
@@ -9,8 +9,11 @@
     ]]></description>
 
   <change-notes><![CDATA[
-      1.1: added the dialog that show detail of the image.
-      1.0: first release.
+      <ul>
+      <li>1.2: improved appearance & added settings dialog.</li>
+      <li>1.1: added the dialog that show detail of the image.</li>
+      <li>1.0: first release.</li>
+      </ul>
     ]]>
   </change-notes>
 
