@@ -3,18 +3,12 @@ package com.androhi.androiddrawableviewer.form;
 import com.androhi.androiddrawableviewer.Constants;
 import com.androhi.androiddrawableviewer.model.DrawableModel;
 import com.androhi.androiddrawableviewer.util.IconUtils;
-import com.intellij.designer.designSurface.feedbacks.LineMarginBorder;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
-import com.intellij.ui.JBColor;
-import com.intellij.ui.plaf.beg.BegBorders;
-import com.intellij.util.ui.MacUIUtil;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
 import javax.swing.border.SoftBevelBorder;
 import java.awt.*;
 import java.util.List;

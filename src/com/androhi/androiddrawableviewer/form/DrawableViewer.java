@@ -217,6 +217,8 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
     private MouseListener mouseListener = new MouseListener() {
         @Override
         public void mouseClicked(MouseEvent e) {
+            if (itemList.getItemsCount() == 0) return;
+
             JPopupMenu popupMenu = new JPopupMenu();
 
             JMenuItem showMenu = new JMenuItem(MENU_ITEM_SHOW);
