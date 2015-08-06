@@ -1,19 +1,10 @@
 package com.androhi.androiddrawableviewer.action;
 
-import com.androhi.androiddrawableviewer.Constants;
-import com.androhi.androiddrawableviewer.PluginConfig;
-import com.androhi.androiddrawableviewer.form.DrawableViewer;
+import com.androhi.androiddrawableviewer.form.SettingsDialog;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.fileChooser.FileChooser;
-import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.vfs.VirtualFileManager;
-import com.intellij.openapi.wm.ToolWindowManager;
-import com.intellij.ui.content.Content;
-import com.intellij.ui.content.ContentManager;
 
 public class EditTargetResDirAction extends AnAction {
 
@@ -24,30 +15,8 @@ public class EditTargetResDirAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         Project project = anActionEvent.getProject();
-        PluginConfig pluginConfig = PluginConfig.getInstance(project);
-        if (project == null || pluginConfig == null) return;
-
-        String savedResDir = pluginConfig.getResDir();
-        if (savedResDir == null) {
-            savedResDir = project.getBasePath();
-        }
-        VirtualFile selectDir = VirtualFileManager.getInstance().findFileByUrl(savedResDir);
-        final FileChooserDescriptor descriptor = new FileChooserDescriptor(false, true, false, false, false, false);
-        final VirtualFile file = FileChooser.chooseFile(descriptor, project, selectDir);
-        if (file != null) {
-            pluginConfig.setResDir(file.getPath());
-            resetContent(project);
-        }
-    }
-
-    private void resetContent(Project project) {
-        DrawableViewer drawableViewer = new DrawableViewer(project);
-        ContentManager contentManager = ToolWindowManager.getInstance(project)
-                .getToolWindow(Constants.TOOL_WINDOW_ID).getContentManager();
-        Content content = contentManager.getFactory().createContent(drawableViewer, null, false);
-
-        contentManager.removeAllContents(true);
-        contentManager.addContent(content);
+        SettingsDialog dialog = new SettingsDialog(project);
+        dialog.show();
     }
 
     @Override
