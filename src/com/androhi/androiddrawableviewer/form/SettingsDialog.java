@@ -22,6 +22,11 @@ public class SettingsDialog extends DialogWrapper {
     private Project project;
     private JPanel mainPanel;
     private TextFieldWithBrowseButton resDirText;
+    private JCheckBox checkMdpi;
+    private JCheckBox checkHdpi;
+    private JCheckBox checkXhdpi;
+    private JCheckBox checkXxhdpi;
+    private JCheckBox checkXxxhdpi;
     private PluginConfig pluginConfig;
 
     public SettingsDialog(Project project) {
