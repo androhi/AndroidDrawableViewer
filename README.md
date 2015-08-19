@@ -1,5 +1,7 @@
 # Android Drawable Viewer
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AndroidDrawableViewer-green.svg?style=flat)](https://android-arsenal.com/details/1/2287)
+
 This plugin provide the function that see drawable resources of the android project, support for IntelliJ IDEA and Android Studio.
 
 The page of this plugin is [here](https://plugins.jetbrains.com/plugin/7874?pr=).
