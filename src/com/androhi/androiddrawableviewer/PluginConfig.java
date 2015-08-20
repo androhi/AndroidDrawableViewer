@@ -17,6 +17,11 @@ import org.jetbrains.annotations.Nullable;
 public class PluginConfig implements PersistentStateComponent<PluginConfig> {
 
     private String resDir;
+    private boolean mdpi = false;
+    private boolean hdpi = false;
+    private boolean xhdpi = false;
+    private boolean xxhdpi = false;
+    private boolean xxxhdpi = false;
 
     @Nullable
     @Override
@@ -40,5 +45,45 @@ public class PluginConfig implements PersistentStateComponent<PluginConfig> {
 
     public String getResDir() {
         return this.resDir;
+    }
+
+    public boolean isMdpi() {
+        return mdpi;
+    }
+
+    public void setMdpi(boolean mdpi) {
+        this.mdpi = mdpi;
+    }
+
+    public boolean isHdpi() {
+        return hdpi;
+    }
+
+    public void setHdpi(boolean hdpi) {
+        this.hdpi = hdpi;
+    }
+
+    public boolean isXhdpi() {
+        return xhdpi;
+    }
+
+    public void setXhdpi(boolean xhdpi) {
+        this.xhdpi = xhdpi;
+    }
+
+    public boolean isXxhdpi() {
+        return xxhdpi;
+    }
+
+    public void setXxhdpi(boolean xxhdpi) {
+        this.xxhdpi = xxhdpi;
+    }
+
+    public boolean isXxxhdpi() {
+        return xxxhdpi;
+    }
+
+    public void setXxxhdpi(boolean xxxhdpi) {
+        this.xxxhdpi = xxxhdpi;
     }
 }
