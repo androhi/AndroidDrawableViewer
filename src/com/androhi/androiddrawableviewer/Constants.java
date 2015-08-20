@@ -7,6 +7,7 @@ public class Constants {
     public static final String DEFAULT_RESOURCE_PATH = "/app/src/main/res";
 
     public static final String DRAWABLE_PREFIX = "drawable-";
+    public static final String DRAWABLE_MDPI = "mdpi";
     public static final String DRAWABLE_HDPI = "hdpi";
     public static final String DRAWABLE_XHDPI = "xhdpi";
     public static final String DRAWABLE_XXHDPI = "xxhdpi";

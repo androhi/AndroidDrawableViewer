@@ -28,6 +28,7 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
 
     private static final String MENU_ITEM_DETAIL = "Detail";
 
+    private File[] drawableMdpiFiles;
     private File[] drawableHdpiFiles;
     private File[] drawableXhdpiFiles;
     private File[] drawableXxhdpiFiles;
@@ -68,25 +69,43 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
         }
 
         String baseDirPath = resDirPath + Constants.PATH_SEPARATOR + Constants.DRAWABLE_PREFIX;
-        String hdpiPath = baseDirPath + Constants.DRAWABLE_HDPI;
-        String xhdpiPath = baseDirPath + Constants.DRAWABLE_XHDPI;
-        String xxhdpiPath = baseDirPath + Constants.DRAWABLE_XXHDPI;
-        String xxxhdpiPath = baseDirPath + Constants.DRAWABLE_XXXHDPI;
-
-        File hdpiDir = new File(hdpiPath);
-        File xhdpiDir = new File(xhdpiPath);
-        File xxhdpiDir = new File(xxhdpiPath);
-        File xxxhdpiDir = new File(xxxhdpiPath);
-        drawableHdpiFiles = hdpiDir.listFiles();
-        drawableXhdpiFiles = xhdpiDir.listFiles();
-        drawableXxhdpiFiles = xxhdpiDir.listFiles();
-        drawableXxxhdpiFiles = xxxhdpiDir.listFiles();
+        boolean isMdpi = config != null && config.isMdpi();
+        boolean isHdpi = config != null && config.isHdpi();
+        boolean isXhdpi = config != null && config.isXhdpi();
+        boolean isXxhdpi = config != null && config.isXxhdpi();
+        boolean isXxxhdpi = config != null && config.isXxxhdpi();
 
         fileNameList = new ArrayList<String>();
-        addFileList(drawableHdpiFiles);
-        addFileList(drawableXhdpiFiles);
-        addFileList(drawableXxhdpiFiles);
-        addFileList(drawableXxxhdpiFiles);
+        if (isMdpi) {
+            String mdpiPath = baseDirPath + Constants.DRAWABLE_MDPI;
+            File mdpiDir = new File(mdpiPath);
+            drawableMdpiFiles = mdpiDir.listFiles();
+            addFileList(drawableMdpiFiles);
+        }
+        if (isHdpi) {
+            String hdpiPath = baseDirPath + Constants.DRAWABLE_HDPI;
+            File hdpiDir = new File(hdpiPath);
+            drawableHdpiFiles = hdpiDir.listFiles();
+            addFileList(drawableHdpiFiles);
+        }
+        if (isXhdpi) {
+            String xhdpiPath = baseDirPath + Constants.DRAWABLE_XHDPI;
+            File xhdpiDir = new File(xhdpiPath);
+            drawableXhdpiFiles = xhdpiDir.listFiles();
+            addFileList(drawableXhdpiFiles);
+        }
+        if (isXxhdpi) {
+            String xxhdpiPath = baseDirPath + Constants.DRAWABLE_XXHDPI;
+            File xxhdpiDir = new File(xxhdpiPath);
+            drawableXxhdpiFiles = xxhdpiDir.listFiles();
+            addFileList(drawableXxhdpiFiles);
+        }
+        if (isXxxhdpi) {
+            String xxxhdpiPath = baseDirPath + Constants.DRAWABLE_XXXHDPI;
+            File xxxhdpiDir = new File(xxxhdpiPath);
+            drawableXxxhdpiFiles = xxxhdpiDir.listFiles();
+            addFileList(drawableXxxhdpiFiles);
+        }
 
         Vector<JPanel> panels = new Vector<JPanel>(fileNameList.size());
         for (String fileName : fileNameList) {
@@ -102,6 +121,15 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
             // create model info
             ArrayList<String> densityList = new ArrayList<String>();
 
+            if (drawableMdpiFiles != null) {
+                for (File file : drawableMdpiFiles) {
+                    if (file.getName().equals(fileName)) {
+                        dirName += Constants.DRAWABLE_MDPI;
+                        filePath = file.getPath();
+                        densityList.add(Constants.DRAWABLE_MDPI);
+                    }
+                }
+            }
             if (drawableHdpiFiles != null) {
                 for (File file : drawableHdpiFiles) {
                     if (file.getName().equals(fileName)) {
