@@ -2,6 +2,7 @@ package com.androhi.androiddrawableviewer.form;
 
 import com.androhi.androiddrawableviewer.Constants;
 import com.androhi.androiddrawableviewer.PluginConfig;
+import com.androhi.androiddrawableviewer.util.Logger;
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
@@ -16,6 +17,8 @@ import com.intellij.ui.content.ContentManager;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 public class SettingsDialog extends DialogWrapper {
 
@@ -54,6 +57,12 @@ public class SettingsDialog extends DialogWrapper {
         FileChooserDescriptor descriptor = new FileChooserDescriptor(false, true, false, false, false, false);
         descriptor.setRoots(selectDir);
         resDirText.addBrowseFolderListener(new TextBrowseFolderListener(descriptor, project));
+
+        checkMdpi.setSelected(pluginConfig.isMdpi());
+        checkHdpi.setSelected(pluginConfig.isHdpi());
+        checkXhdpi.setSelected(pluginConfig.isXhdpi());
+        checkXxhdpi.setSelected(pluginConfig.isXxhdpi());
+        checkXxxhdpi.setSelected(pluginConfig.isXxxhdpi());
     }
 
     @Nullable
@@ -69,6 +78,11 @@ public class SettingsDialog extends DialogWrapper {
         if (resDirString == null || resDirString.isEmpty()) {
             return new ValidationInfo("Select resource directory.");
         }
+
+        if (!checkMdpi.isSelected() && !checkHdpi.isSelected() &&
+                !checkXhdpi.isSelected() && !checkXxhdpi.isSelected() && !checkXxxhdpi.isSelected()) {
+            return new ValidationInfo("Check any box.");
+        }
         return null;
     }
 
@@ -77,6 +91,11 @@ public class SettingsDialog extends DialogWrapper {
         super.doOKAction();
         String resDirString = resDirText.getText();
         pluginConfig.setResDir(resDirString);
+        pluginConfig.setMdpi(checkMdpi.isSelected());
+        pluginConfig.setHdpi(checkHdpi.isSelected());
+        pluginConfig.setXhdpi(checkXhdpi.isSelected());
+        pluginConfig.setXxhdpi(checkXxhdpi.isSelected());
+        pluginConfig.setXxxhdpi(checkXxxhdpi.isSelected());
         resetContent(project);
     }
 
