@@ -7,10 +7,12 @@ import com.androhi.androiddrawableviewer.util.IconUtils;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionToolbar;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
+import com.intellij.openapi.ide.CopyPasteManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.SimpleToolWindowPanel;
 import com.intellij.ui.ScrollPaneFactory;
 import com.intellij.ui.components.JBList;
+import com.intellij.util.ui.TextTransferable;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -22,6 +24,8 @@ import java.util.*;
 public class DrawableViewer extends SimpleToolWindowPanel implements ActionListener {
 
     private static final String MENU_ITEM_SHOW = "Show";
+    private static final String MENU_ITEM_COPY_DRAWABLE_RES = "Copy Drawable Res";
+
     private static final String MENU_ITEM_DETAIL = "Detail";
 
     private File[] drawableHdpiFiles;
@@ -208,10 +212,26 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
         dialog.show();
     }
 
+    private void copyDrawableId() {
+        DrawableModel drawableModel = drawableModelList.get(itemList.getMinSelectionIndex());
+        String fileName = drawableModel.getFileName();
+        int position = fileName.lastIndexOf(".");
+        if (position >= 0) {
+            fileName = fileName.substring(0, position);
+        }
+        final String fileNameWithoutExtension = fileName;
+        CopyPasteManager.getInstance().setContents(new TextTransferable("R.drawable." + fileNameWithoutExtension));
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        //String cmd = e.getActionCommand();
-        showDetailDialog();
+        String cmd = e.getActionCommand();
+
+        if (MENU_ITEM_SHOW.equals(cmd)) {
+            showDetailDialog();
+        } else if (MENU_ITEM_COPY_DRAWABLE_RES.equals(cmd)) {
+            copyDrawableId();
+        }
     }
 
     private MouseListener mouseListener = new MouseListener() {
@@ -224,6 +244,10 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
             JMenuItem showMenu = new JMenuItem(MENU_ITEM_SHOW);
             showMenu.addActionListener(DrawableViewer.this);
             popupMenu.add(showMenu);
+
+            JMenuItem copyDrawableIdMenu = new JMenuItem(MENU_ITEM_COPY_DRAWABLE_RES);
+            copyDrawableIdMenu.addActionListener(DrawableViewer.this);
+            popupMenu.add(copyDrawableIdMenu);
 
             // todo: detailクリックで詳細ビューダイアログを表示する
 
