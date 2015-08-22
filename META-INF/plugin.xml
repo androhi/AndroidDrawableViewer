@@ -1,18 +1,30 @@
 <idea-plugin version="2">
   <id>com.androhi.androiddrawableviewer</id>
   <name>Android Drawable Viewer</name>
-  <version>1.2</version>
+  <version>1.3</version>
   <vendor email="takahiro.1828@gmail.com" url="https://github.com/androhi/AndroidDrawableViewer">androhi</vendor>
 
   <description><![CDATA[
-      This plugin provide function that see drawable resource of the android project.
+      <p>
+        This plugin provide function that see drawable resource of the android project.
+      </p>
+      <p>
+        Features:
+        <ul>
+          <li>Show thumbnail list of the drawable resource</li>
+          <li>Show preview of the image</li>
+          <li>Copy the resource name</li>
+          <li>Support .png and .jpeg files</li>
+        </ul>
+      </p>
     ]]></description>
 
   <change-notes><![CDATA[
       <ul>
-      <li>1.2: improved appearance & added settings dialog.</li>
-      <li>1.1: added the dialog that show detail of the image.</li>
-      <li>1.0: first release.</li>
+        <li>1.3: added copy the resource name & added config to choose some folder.</li>
+        <li>1.2: improved appearance & added settings dialog.</li>
+        <li>1.1: added the dialog that show detail of the image.</li>
+        <li>1.0: first release.</li>
       </ul>
     ]]>
   </change-notes>
