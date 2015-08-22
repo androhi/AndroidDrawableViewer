@@ -22,6 +22,13 @@ The page of this plugin is [here](https://plugins.jetbrains.com/plugin/7874?pr=)
 2. Launch IDE and select "Preferences > Plugins > Install plugin from disk..."
 3. Choose `AndroidDrawableViewer.zip` file.
 
+# Features
+
+- Show thumbnail list of the drawable resource
+- Show preview of the image
+- Copy the resource name
+- Support .png and .jpeg files
+
 # License
 
 ```
