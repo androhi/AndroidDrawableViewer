@@ -77,31 +77,31 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
 
         fileNameList = new ArrayList<String>();
         if (isMdpi) {
-            String mdpiPath = baseDirPath + Constants.DRAWABLE_MDPI;
+            String mdpiPath = baseDirPath + Constants.DENSITY_MDPI;
             File mdpiDir = new File(mdpiPath);
             drawableMdpiFiles = mdpiDir.listFiles();
             addFileList(drawableMdpiFiles);
         }
         if (isHdpi) {
-            String hdpiPath = baseDirPath + Constants.DRAWABLE_HDPI;
+            String hdpiPath = baseDirPath + Constants.DENSITY_HDPI;
             File hdpiDir = new File(hdpiPath);
             drawableHdpiFiles = hdpiDir.listFiles();
             addFileList(drawableHdpiFiles);
         }
         if (isXhdpi) {
-            String xhdpiPath = baseDirPath + Constants.DRAWABLE_XHDPI;
+            String xhdpiPath = baseDirPath + Constants.DENSITY_XHDPI;
             File xhdpiDir = new File(xhdpiPath);
             drawableXhdpiFiles = xhdpiDir.listFiles();
             addFileList(drawableXhdpiFiles);
         }
         if (isXxhdpi) {
-            String xxhdpiPath = baseDirPath + Constants.DRAWABLE_XXHDPI;
+            String xxhdpiPath = baseDirPath + Constants.DENSITY_XXHDPI;
             File xxhdpiDir = new File(xxhdpiPath);
             drawableXxhdpiFiles = xxhdpiDir.listFiles();
             addFileList(drawableXxhdpiFiles);
         }
         if (isXxxhdpi) {
-            String xxxhdpiPath = baseDirPath + Constants.DRAWABLE_XXXHDPI;
+            String xxxhdpiPath = baseDirPath + Constants.DENSITY_XXXHDPI;
             File xxxhdpiDir = new File(xxxhdpiPath);
             drawableXxxhdpiFiles = xxxhdpiDir.listFiles();
             addFileList(drawableXxxhdpiFiles);
@@ -124,9 +124,9 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
             if (drawableMdpiFiles != null) {
                 for (File file : drawableMdpiFiles) {
                     if (file.getName().equals(fileName)) {
-                        dirName += Constants.DRAWABLE_MDPI;
+                        dirName += Constants.DENSITY_MDPI;
                         filePath = file.getPath();
-                        densityList.add(Constants.DRAWABLE_MDPI);
+                        densityList.add(Constants.DENSITY_MDPI);
                     }
                 }
             }
@@ -134,9 +134,9 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
                 for (File file : drawableHdpiFiles) {
                     if (file.getName().equals(fileName)) {
                         if (dirName.length() > 0) dirName += " / ";
-                        dirName += Constants.DRAWABLE_HDPI;
+                        dirName += Constants.DENSITY_HDPI;
                         filePath = file.getPath();
-                        densityList.add(Constants.DRAWABLE_HDPI);
+                        densityList.add(Constants.DENSITY_HDPI);
                     }
                 }
             }
@@ -144,9 +144,9 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
                 for (File file : drawableXhdpiFiles) {
                     if (file.getName().equals(fileName)) {
                         if (dirName.length() > 0) dirName += " / ";
-                        dirName += Constants.DRAWABLE_XHDPI;
+                        dirName += Constants.DENSITY_XHDPI;
                         filePath = file.getPath();
-                        densityList.add(Constants.DRAWABLE_XHDPI);
+                        densityList.add(Constants.DENSITY_XHDPI);
                     }
                 }
             }
@@ -154,9 +154,9 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
                 for (File file : drawableXxhdpiFiles) {
                     if (file.getName().equals(fileName)) {
                         if (dirName.length() > 0) dirName += " / ";
-                        dirName += Constants.DRAWABLE_XXHDPI;
+                        dirName += Constants.DENSITY_XXHDPI;
                         filePath = file.getPath();
-                        densityList.add(Constants.DRAWABLE_XXHDPI);
+                        densityList.add(Constants.DENSITY_XXHDPI);
                     }
                 }
             }
@@ -164,9 +164,9 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
                 for (File file : drawableXxxhdpiFiles) {
                     if (file.getName().equals(fileName)) {
                         if (dirName.length() > 0) dirName += " / ";
-                        dirName += Constants.DRAWABLE_XXXHDPI;
+                        dirName += Constants.DENSITY_XXXHDPI;
                         filePath = file.getPath();
-                        densityList.add(Constants.DRAWABLE_XXXHDPI);
+                        densityList.add(Constants.DENSITY_XXXHDPI);
                     }
                 }
             }
