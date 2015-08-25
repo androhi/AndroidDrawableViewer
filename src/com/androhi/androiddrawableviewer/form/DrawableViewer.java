@@ -33,6 +33,11 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
     private File[] drawableXhdpiFiles;
     private File[] drawableXxhdpiFiles;
     private File[] drawableXxxhdpiFiles;
+    private File[] mipmapMdpiFiles;
+    private File[] mipmapHdpiFiles;
+    private File[] mipmapXhdpiFiles;
+    private File[] mipmapXxhdpiFiles;
+    private File[] mipmapXxxhdpiFiles;
     private ArrayList<String> fileNameList;
     private ArrayList<DrawableModel> drawableModelList;
     private JBList itemList;
@@ -68,110 +73,207 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
             }
         }
 
-        String baseDirPath = resDirPath + Constants.PATH_SEPARATOR + Constants.DRAWABLE_PREFIX;
-        boolean isMdpi = config != null && config.isMdpi();
-        boolean isHdpi = config != null && config.isHdpi();
-        boolean isXhdpi = config != null && config.isXhdpi();
-        boolean isXxhdpi = config != null && config.isXxhdpi();
-        boolean isXxxhdpi = config != null && config.isXxxhdpi();
+        String baseDrawableDirPath = resDirPath + Constants.PATH_SEPARATOR + Constants.DRAWABLE_PREFIX;
+        boolean isDrawableMdpi = config != null && config.isDrawableMdpi();
+        boolean isDrawableHdpi = config != null && config.isDrawableHdpi();
+        boolean isDrawableXhdpi = config != null && config.isDrawableXhdpi();
+        boolean isDrawableXxhdpi = config != null && config.isDrawableXxhdpi();
+        boolean isDrawableXxxhdpi = config != null && config.isDrawableXxxhdpi();
 
         fileNameList = new ArrayList<String>();
-        if (isMdpi) {
-            String mdpiPath = baseDirPath + Constants.DENSITY_MDPI;
+        if (isDrawableMdpi) {
+            String mdpiPath = baseDrawableDirPath + Constants.DENSITY_MDPI;
             File mdpiDir = new File(mdpiPath);
             drawableMdpiFiles = mdpiDir.listFiles();
             addFileList(drawableMdpiFiles);
         }
-        if (isHdpi) {
-            String hdpiPath = baseDirPath + Constants.DENSITY_HDPI;
+        if (isDrawableHdpi) {
+            String hdpiPath = baseDrawableDirPath + Constants.DENSITY_HDPI;
             File hdpiDir = new File(hdpiPath);
             drawableHdpiFiles = hdpiDir.listFiles();
             addFileList(drawableHdpiFiles);
         }
-        if (isXhdpi) {
-            String xhdpiPath = baseDirPath + Constants.DENSITY_XHDPI;
+        if (isDrawableXhdpi) {
+            String xhdpiPath = baseDrawableDirPath + Constants.DENSITY_XHDPI;
             File xhdpiDir = new File(xhdpiPath);
             drawableXhdpiFiles = xhdpiDir.listFiles();
             addFileList(drawableXhdpiFiles);
         }
-        if (isXxhdpi) {
-            String xxhdpiPath = baseDirPath + Constants.DENSITY_XXHDPI;
+        if (isDrawableXxhdpi) {
+            String xxhdpiPath = baseDrawableDirPath + Constants.DENSITY_XXHDPI;
             File xxhdpiDir = new File(xxhdpiPath);
             drawableXxhdpiFiles = xxhdpiDir.listFiles();
             addFileList(drawableXxhdpiFiles);
         }
-        if (isXxxhdpi) {
-            String xxxhdpiPath = baseDirPath + Constants.DENSITY_XXXHDPI;
+        if (isDrawableXxxhdpi) {
+            String xxxhdpiPath = baseDrawableDirPath + Constants.DENSITY_XXXHDPI;
             File xxxhdpiDir = new File(xxxhdpiPath);
             drawableXxxhdpiFiles = xxxhdpiDir.listFiles();
             addFileList(drawableXxxhdpiFiles);
         }
 
+        String baseMipmapDirPath = resDirPath + Constants.PATH_SEPARATOR + Constants.MIPMAP_PREFIX;
+        boolean isMipmapMdpi = config != null && config.isMipmapMdpi();
+        boolean isMipmapHdpi = config != null && config.isMipmapHdpi();
+        boolean isMipmapXhdpi = config != null && config.isMipmapXhdpi();
+        boolean isMipmapXxhdpi = config != null && config.isMipmapXxhdpi();
+        boolean isMipmapXxxhdpi = config != null && config.isMipmapXxxhdpi();
+
+        if (isMipmapMdpi) {
+            String mdpiPath = baseMipmapDirPath + Constants.DENSITY_MDPI;
+            File mdpiDir = new File(mdpiPath);
+            mipmapMdpiFiles = mdpiDir.listFiles();
+            addFileList(mipmapMdpiFiles);
+        }
+        if (isMipmapHdpi) {
+            String hdpiPath = baseMipmapDirPath + Constants.DENSITY_HDPI;
+            File hdpiDir = new File(hdpiPath);
+            mipmapHdpiFiles = hdpiDir.listFiles();
+            addFileList(mipmapHdpiFiles);
+        }
+        if (isMipmapXhdpi) {
+            String xhdpiPath = baseMipmapDirPath + Constants.DENSITY_XHDPI;
+            File xhdpiDir = new File(xhdpiPath);
+            mipmapXhdpiFiles = xhdpiDir.listFiles();
+            addFileList(mipmapXhdpiFiles);
+        }
+        if (isMipmapXxhdpi) {
+            String xxhdpiPath = baseMipmapDirPath + Constants.DENSITY_XXHDPI;
+            File xxhdpiDir = new File(xxhdpiPath);
+            mipmapXxhdpiFiles = xxhdpiDir.listFiles();
+            addFileList(mipmapXxhdpiFiles);
+        }
+        if (isMipmapXxxhdpi) {
+            String xxxhdpiPath = baseMipmapDirPath + Constants.DENSITY_XXXHDPI;
+            File xxxhdpiDir = new File(xxxhdpiPath);
+            mipmapXxxhdpiFiles = xxxhdpiDir.listFiles();
+            addFileList(mipmapXxxhdpiFiles);
+        }
+
         Vector<JPanel> panels = new Vector<JPanel>(fileNameList.size());
         for (String fileName : fileNameList) {
             String filePath = "";
-            String dirName = "";
+            String drawableDensityName;
+            String mipmapDensityName;
             JPanel itemPanel = new JPanel();
             JLabel iconLabel = new JLabel();
-            JLabel dirLabel = new JLabel();
-            GridLayout layout = new GridLayout(2, 1, 0, 4);
+            JLabel drawableLabel = new JLabel();
+            JLabel mipmapLabel = new JLabel();
+            GridLayout layout = new GridLayout(3, 1, 0, 4);
             itemPanel.setLayout(layout);
             itemPanel.setBorder(new EmptyBorder(10, 20, 10, 20));
 
+            drawableDensityName = "Drawable: ";
+            mipmapDensityName = "Mipmap: ";
+
             // create model info
-            ArrayList<String> densityList = new ArrayList<String>();
+            ArrayList<String> drawableDensityList = new ArrayList<String>();
+            ArrayList<String> mipmapDensityList = new ArrayList<String>();
 
             if (drawableMdpiFiles != null) {
                 for (File file : drawableMdpiFiles) {
                     if (file.getName().equals(fileName)) {
-                        dirName += Constants.DENSITY_MDPI;
+                        drawableDensityName += Constants.DENSITY_MDPI;
                         filePath = file.getPath();
-                        densityList.add(Constants.DENSITY_MDPI);
+                        drawableDensityList.add(Constants.DENSITY_MDPI);
                     }
                 }
             }
             if (drawableHdpiFiles != null) {
                 for (File file : drawableHdpiFiles) {
                     if (file.getName().equals(fileName)) {
-                        if (dirName.length() > 0) dirName += " / ";
-                        dirName += Constants.DENSITY_HDPI;
+                        if (drawableDensityName.contains("dpi")) drawableDensityName += " / ";
+                        drawableDensityName += Constants.DENSITY_HDPI;
                         filePath = file.getPath();
-                        densityList.add(Constants.DENSITY_HDPI);
+                        drawableDensityList.add(Constants.DENSITY_HDPI);
                     }
                 }
             }
             if (drawableXhdpiFiles != null) {
                 for (File file : drawableXhdpiFiles) {
                     if (file.getName().equals(fileName)) {
-                        if (dirName.length() > 0) dirName += " / ";
-                        dirName += Constants.DENSITY_XHDPI;
+                        if (drawableDensityName.contains("dpi")) drawableDensityName += " / ";
+                        drawableDensityName += Constants.DENSITY_XHDPI;
                         filePath = file.getPath();
-                        densityList.add(Constants.DENSITY_XHDPI);
+                        drawableDensityList.add(Constants.DENSITY_XHDPI);
                     }
                 }
             }
             if (drawableXxhdpiFiles != null) {
                 for (File file : drawableXxhdpiFiles) {
                     if (file.getName().equals(fileName)) {
-                        if (dirName.length() > 0) dirName += " / ";
-                        dirName += Constants.DENSITY_XXHDPI;
+                        if (drawableDensityName.contains("dpi")) drawableDensityName += " / ";
+                        drawableDensityName += Constants.DENSITY_XXHDPI;
                         filePath = file.getPath();
-                        densityList.add(Constants.DENSITY_XXHDPI);
+                        drawableDensityList.add(Constants.DENSITY_XXHDPI);
                     }
                 }
             }
             if (drawableXxxhdpiFiles != null) {
                 for (File file : drawableXxxhdpiFiles) {
                     if (file.getName().equals(fileName)) {
-                        if (dirName.length() > 0) dirName += " / ";
-                        dirName += Constants.DENSITY_XXXHDPI;
+                        if (drawableDensityName.contains("dpi")) drawableDensityName += " / ";
+                        drawableDensityName += Constants.DENSITY_XXXHDPI;
                         filePath = file.getPath();
-                        densityList.add(Constants.DENSITY_XXXHDPI);
+                        drawableDensityList.add(Constants.DENSITY_XXXHDPI);
                     }
                 }
             }
 
-            // create row of the list
+            if (mipmapMdpiFiles != null) {
+                for (File file : mipmapMdpiFiles) {
+                    if (file.getName().equals(fileName)) {
+                        mipmapDensityName += Constants.DENSITY_MDPI;
+                        filePath = file.getPath();
+                        mipmapDensityList.add(Constants.DENSITY_MDPI);
+                    }
+                }
+            }
+            if (mipmapHdpiFiles != null) {
+                for (File file : mipmapHdpiFiles) {
+                    if (file.getName().equals(fileName)) {
+                        if (mipmapDensityName.contains("dpi")) mipmapDensityName += " / ";
+                        mipmapDensityName += Constants.DENSITY_HDPI;
+                        filePath = file.getPath();
+                        mipmapDensityList.add(Constants.DENSITY_HDPI);
+                    }
+                }
+            }
+            if (mipmapXhdpiFiles != null) {
+                for (File file : mipmapXhdpiFiles) {
+                    if (file.getName().equals(fileName)) {
+                        if (mipmapDensityName.contains("dpi")) mipmapDensityName += " / ";
+                        mipmapDensityName += Constants.DENSITY_XHDPI;
+                        filePath = file.getPath();
+                        mipmapDensityList.add(Constants.DENSITY_XHDPI);
+                    }
+                }
+            }
+            if (mipmapXxhdpiFiles != null) {
+                for (File file : mipmapXxhdpiFiles) {
+                    if (file.getName().equals(fileName)) {
+                        if (mipmapDensityName.contains("dpi")) mipmapDensityName += " / ";
+                        mipmapDensityName += Constants.DENSITY_XXHDPI;
+                        filePath = file.getPath();
+                        mipmapDensityList.add(Constants.DENSITY_XXHDPI);
+                    }
+                }
+            }
+            if (mipmapXxxhdpiFiles != null) {
+                for (File file : mipmapXxxhdpiFiles) {
+                    if (file.getName().equals(fileName)) {
+                        if (mipmapDensityName.contains("dpi")) mipmapDensityName += " / ";
+                        mipmapDensityName += Constants.DENSITY_XXXHDPI;
+                        filePath = file.getPath();
+                        mipmapDensityList.add(Constants.DENSITY_XXXHDPI);
+                    }
+                }
+            }
+
+            if (!drawableDensityName.contains("dpi")) drawableDensityName += "-";
+            if (!mipmapDensityName.contains("dpi")) mipmapDensityName += "-";
+
+                // create row of the list
             Icon icon = IconUtils.createSmallIcon(filePath);
             if (icon != null) {
                 // set image and name
@@ -182,17 +284,23 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
                 iconLabel.setIconTextGap(12);
                 itemPanel.add(iconLabel);
 
-                // set name of the directory
-                dirLabel.setText(dirName);
-                dirLabel.setHorizontalTextPosition(JLabel.LEFT);
-                dirLabel.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 12));
-                itemPanel.add(dirLabel);
+                // set name of the drawable density
+                drawableLabel.setText(drawableDensityName);
+                drawableLabel.setHorizontalTextPosition(JLabel.LEFT);
+                drawableLabel.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 12));
+                itemPanel.add(drawableLabel);
+
+                // set name of the mipmap density
+                mipmapLabel.setText(mipmapDensityName);
+                mipmapLabel.setHorizontalTextPosition(JLabel.LEFT);
+                mipmapLabel.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 12));
+                itemPanel.add(mipmapLabel);
 
                 panels.add(itemPanel);
             }
 
             if (icon != null) {
-                DrawableModel model = new DrawableModel(fileName, resDirPath, densityList);
+                DrawableModel model = new DrawableModel(fileName, resDirPath, drawableDensityList, mipmapDensityList);
                 drawableModelList.add(model);
             }
         }

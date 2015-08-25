@@ -34,7 +34,7 @@ public class DetailDisplayDialog extends DialogWrapper {
     private void createContent(DrawableModel model) {
         if (model == null) return;
 
-        List<String> densityList = model.getDensityList();
+        List<String> densityList = model.getDrawableDensityList();
         String fileName = model.getFileName();
         Component oldComponent = null;
 

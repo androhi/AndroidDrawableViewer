@@ -58,11 +58,11 @@ public class SettingsDialog extends DialogWrapper {
         descriptor.setRoots(selectDir);
         resDirText.addBrowseFolderListener(new TextBrowseFolderListener(descriptor, project));
 
-        checkMdpi.setSelected(pluginConfig.isMdpi());
-        checkHdpi.setSelected(pluginConfig.isHdpi());
-        checkXhdpi.setSelected(pluginConfig.isXhdpi());
-        checkXxhdpi.setSelected(pluginConfig.isXxhdpi());
-        checkXxxhdpi.setSelected(pluginConfig.isXxxhdpi());
+        checkMdpi.setSelected(pluginConfig.isDrawableMdpi());
+        checkHdpi.setSelected(pluginConfig.isDrawableHdpi());
+        checkXhdpi.setSelected(pluginConfig.isDrawableXhdpi());
+        checkXxhdpi.setSelected(pluginConfig.isDrawableXxhdpi());
+        checkXxxhdpi.setSelected(pluginConfig.isDrawableXxxhdpi());
     }
 
     @Nullable
@@ -91,11 +91,11 @@ public class SettingsDialog extends DialogWrapper {
         super.doOKAction();
         String resDirString = resDirText.getText();
         pluginConfig.setResDir(resDirString);
-        pluginConfig.setMdpi(checkMdpi.isSelected());
-        pluginConfig.setHdpi(checkHdpi.isSelected());
-        pluginConfig.setXhdpi(checkXhdpi.isSelected());
-        pluginConfig.setXxhdpi(checkXxhdpi.isSelected());
-        pluginConfig.setXxxhdpi(checkXxxhdpi.isSelected());
+        pluginConfig.setDrawableMdpi(checkMdpi.isSelected());
+        pluginConfig.setDrawableHdpi(checkHdpi.isSelected());
+        pluginConfig.setDrawableXhdpi(checkXhdpi.isSelected());
+        pluginConfig.setDrawableXxhdpi(checkXxhdpi.isSelected());
+        pluginConfig.setDrawableXxxhdpi(checkXxxhdpi.isSelected());
         resetContent(project);
     }
 
