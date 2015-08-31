@@ -133,6 +133,7 @@ public class DrawableViewer extends SimpleToolWindowPanel implements ActionListe
             if (drawableHdpiFiles != null) {
                 for (File file : drawableHdpiFiles) {
                     if (file.getName().equals(fileName)) {
+                        if (dirName.length() > 0) dirName += " / ";
                         dirName += Constants.DRAWABLE_HDPI;
                         filePath = file.getPath();
                         densityList.add(Constants.DRAWABLE_HDPI);
