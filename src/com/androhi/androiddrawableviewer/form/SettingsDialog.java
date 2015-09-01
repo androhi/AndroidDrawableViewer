@@ -32,6 +32,7 @@ public class SettingsDialog extends DialogWrapper {
     private JCheckBox checkMipmapXhdpi;
     private JCheckBox checkMipmapXxhdpi;
     private JCheckBox checkMipmapXxxhdpi;
+    private JTextField textFlavorName;
     private PluginConfig pluginConfig;
 
     public SettingsDialog(Project project) {
