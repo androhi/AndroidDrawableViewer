@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.androhi.androiddrawableviewer.form.SettingsDialog">
-  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="7" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="8" left="8" bottom="8" right="8"/>
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="10" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="16" left="16" bottom="16" right="16"/>
     <constraints>
       <xy x="20" y="20" width="563" height="400"/>
     </constraints>
@@ -19,12 +19,12 @@
       <grid id="a3cb7" layout-manager="GridLayoutManager" row-count="1" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="8" left="16" bottom="8" right="0"/>
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="0" row-span="1" col-span="6" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="d01c0" class="javax.swing.JCheckBox" binding="checkMdpi">
+          <component id="d01c0" class="javax.swing.JCheckBox" binding="checkDrawableMdpi">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -32,7 +32,7 @@
               <text value="mdpi"/>
             </properties>
           </component>
-          <component id="931e9" class="javax.swing.JCheckBox" binding="checkHdpi">
+          <component id="931e9" class="javax.swing.JCheckBox" binding="checkDrawableHdpi">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -40,7 +40,7 @@
               <text value="hdpi"/>
             </properties>
           </component>
-          <component id="93b02" class="javax.swing.JCheckBox" binding="checkXhdpi">
+          <component id="93b02" class="javax.swing.JCheckBox" binding="checkDrawableXhdpi">
             <constraints>
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -48,7 +48,7 @@
               <text value="xhdpi"/>
             </properties>
           </component>
-          <component id="54d9f" class="javax.swing.JCheckBox" binding="checkXxhdpi">
+          <component id="54d9f" class="javax.swing.JCheckBox" binding="checkDrawableXxhdpi">
             <constraints>
               <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -56,7 +56,7 @@
               <text value="xxhdpi"/>
             </properties>
           </component>
-          <component id="f073c" class="javax.swing.JCheckBox" binding="checkXxxhdpi">
+          <component id="f073c" class="javax.swing.JCheckBox" binding="checkDrawableXxxhdpi">
             <constraints>
               <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -76,29 +76,100 @@
       </component>
       <component id="e291e" class="com.intellij.openapi.ui.TextFieldWithBrowseButton" binding="resDirText">
         <constraints>
-          <grid row="1" column="0" row-span="2" col-span="4" vsize-policy="3" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="360" height="-1"/>
-            <preferred-size width="360" height="-1"/>
+          <grid row="1" column="0" row-span="2" col-span="6" vsize-policy="3" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="400" height="-1"/>
+            <preferred-size width="400" height="-1"/>
           </grid>
         </constraints>
         <properties/>
       </component>
       <component id="5c536" class="javax.swing.JSeparator">
         <constraints>
-          <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="5338f" class="javax.swing.JSeparator">
-        <constraints>
-          <grid row="5" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="1" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
       </component>
       <vspacer id="a11a6">
         <constraints>
-          <grid row="3" column="0" row-span="2" col-span="3" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
-            <preferred-size width="-1" height="16"/>
+          <grid row="3" column="2" row-span="2" col-span="3" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="24"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <component id="b728d" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <grid id="43239" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="8" left="16" bottom="8" right="0"/>
+        <constraints>
+          <grid row="9" column="0" row-span="1" col-span="6" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="599d0" class="javax.swing.JCheckBox" binding="checkMipmapMdpi">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="mdpi"/>
+            </properties>
+          </component>
+          <component id="633f8" class="javax.swing.JCheckBox" binding="checkMipmapHdpi">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="hdpi"/>
+            </properties>
+          </component>
+          <component id="66873" class="javax.swing.JCheckBox" binding="checkMipmapXhdpi">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="xhdpi"/>
+            </properties>
+          </component>
+          <component id="70b04" class="javax.swing.JCheckBox" binding="checkMipmapXxhdpi">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="xxhdpi"/>
+            </properties>
+          </component>
+          <component id="4ddd6" class="javax.swing.JCheckBox" binding="checkMipmapXxxhdpi">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="xxxhdpi"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="494d2" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Valid mipmap folder"/>
+        </properties>
+      </component>
+      <component id="5338f" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <vspacer id="b3652">
+        <constraints>
+          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <preferred-size width="-1" height="24"/>
           </grid>
         </constraints>
       </vspacer>
