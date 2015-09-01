@@ -34,8 +34,23 @@ public class DetailDisplayDialog extends DialogWrapper {
     private void createContent(DrawableModel model) {
         if (model == null) return;
 
-        List<String> densityList = model.getDensityList();
         String fileName = model.getFileName();
+        String baseDir = model.getResourceDirectory();
+
+        // set image from drawable
+        List<String> drawableDensityList = model.getDrawableDensityList();
+        addDisplayImage(baseDir, fileName, Constants.DRAWABLE_PREFIX, drawableDensityList);
+
+        // set image from mipmap
+        List<String> mipmapDensityList = model.getMipmapDensityList();
+        addDisplayImage(baseDir, fileName, Constants.MIPMAP_PREFIX, mipmapDensityList);
+    }
+
+    private void addDisplayImage(String baseDir, String fileName, String densityPrefix, List<String> densityList) {
+        if (densityList == null || densityList.size() == 0) {
+            return;
+        }
+
         Component oldComponent = null;
 
         for (String density : densityList) {
@@ -50,8 +65,8 @@ public class DetailDisplayDialog extends DialogWrapper {
 
             // Image
             JLabel iconLabel = new JLabel();
-            String filePath = model.getResourceDirectory() + Constants.PATH_SEPARATOR +
-                    Constants.DRAWABLE_PREFIX + density + Constants.PATH_SEPARATOR + fileName;
+            String filePath = baseDir + Constants.PATH_SEPARATOR +
+                    densityPrefix + density + Constants.PATH_SEPARATOR + fileName;
             Icon icon = IconUtils.createOriginalIcon(filePath);
             iconLabel.setIcon(icon);
             iconLabel.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));

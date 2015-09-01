@@ -6,14 +6,17 @@ public class DrawableModel {
 
     private String fileName;
     private String resourceDirectory;
-    private List<String> densityList;
+    private List<String> drawableDensityList;
+    private List<String> mipmapDensityList;
     private int pixelSize;
     private long dataSize;
 
-    public DrawableModel(String fileName, String resDir, List<String> densityList) {
+    public DrawableModel(String fileName, String resDir,
+                         List<String> drawableDensityList, List<String> mipmapDensityList) {
         this.fileName = fileName;
         this.resourceDirectory = resDir;
-        this.densityList = densityList;
+        this.drawableDensityList = drawableDensityList;
+        this.mipmapDensityList = mipmapDensityList;
     }
 
     public String getFileName() {
@@ -32,12 +35,20 @@ public class DrawableModel {
         this.resourceDirectory = resourceDirectory;
     }
 
-    public List<String> getDensityList() {
-        return densityList;
+    public List<String> getDrawableDensityList() {
+        return drawableDensityList;
     }
 
-    public void setDensityList(List<String> densityList) {
-        this.densityList = densityList;
+    public void setDrawableDensityList(List<String> densityList) {
+        this.drawableDensityList = densityList;
+    }
+
+    public List<String> getMipmapDensityList() {
+        return mipmapDensityList;
+    }
+
+    public void setMipmapDensityList(List<String> densityList) {
+        this.mipmapDensityList = densityList;
     }
 
     public int getPixelSize() {
