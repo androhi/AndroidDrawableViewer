@@ -1,0 +1,41 @@
+<idea-plugin version="2">
+  <id>com.androhi.androiddrawableviewer</id>
+  <name>Android Drawable Viewer</name>
+  <version>1.3</version>
+  <vendor email="takahiro.1828@gmail.com" url="https://github.com/androhi/AndroidDrawableViewer">androhi</vendor>
+  <description>
+      &lt;p&gt;
+        This plugin provide function that see drawable resource of the android project.
+      &lt;/p&gt;
+      &lt;p&gt;
+        Features:
+        &lt;ul&gt;
+          &lt;li&gt;Show thumbnail list of the drawable resource&lt;/li&gt;
+          &lt;li&gt;Show preview of the image&lt;/li&gt;
+          &lt;li&gt;Copy the resource name&lt;/li&gt;
+          &lt;li&gt;Support .png and .jpeg files&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/p&gt;
+    </description>
+  <change-notes>
+      &lt;ul&gt;
+        &lt;li&gt;1.3: added copy the resource name &amp; added config to choose some folder.&lt;/li&gt;
+        &lt;li&gt;1.2: improved appearance &amp; added settings dialog.&lt;/li&gt;
+        &lt;li&gt;1.1: added the dialog that show detail of the image.&lt;/li&gt;
+        &lt;li&gt;1.0: first release.&lt;/li&gt;
+      &lt;/ul&gt;
+    
+    </change-notes>
+  <idea-version since-build="131"/>
+  <depends>com.intellij.modules.java</depends>
+  <depends>org.jetbrains.android</depends>
+  <extensions defaultExtensionNs="com.intellij">
+    <toolWindow anchor="right" canCloseContents="true" id="DrawableViewer" factoryClass="com.androhi.androiddrawableviewer.form.AndroidDrawableViewerToolWindowFactory"/>
+    <projectService serviceInterface="com.androhi.androiddrawableviewer.PluginConfig" serviceImplementation="com.androhi.androiddrawableviewer.PluginConfig"/>
+  </extensions>
+  <application-components/>
+  <project-components/>
+  <actions>
+    <action class="com.androhi.androiddrawableviewer.action.EditTargetResDirAction" id="EditTargetResDir"/>
+  </actions>
+</idea-plugin>

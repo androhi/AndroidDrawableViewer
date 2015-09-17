@@ -1,0 +1,310 @@
+2015-09-18 00:41:36,765 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2015-09-18 00:41:36,776 [     11]   INFO -        #com.intellij.idea.Main - IDE: IntelliJ IDEA (build #IC-141.1532.4, 18 Jun 2015 00:00) 
+2015-09-18 00:41:36,776 [     11]   INFO -        #com.intellij.idea.Main - OS: Mac OS X (10.10.4, x86_64) 
+2015-09-18 00:41:36,776 [     11]   INFO -        #com.intellij.idea.Main - JRE: 1.8.0_31-b13 (Oracle Corporation) 
+2015-09-18 00:41:36,776 [     11]   INFO -        #com.intellij.idea.Main - JVM: 25.31-b07 (Java HotSpot(TM) 64-Bit Server VM) 
+2015-09-18 00:41:36,784 [     19]   INFO -        #com.intellij.idea.Main - JVM Args: -Dapple.laf.useScreenMenuBar=true -Didea.classpath.index.enabled=false -Didea.config.path=/Users/androhi/GitHub/AndroidDrawableViewer/build/idea-sandbox/config -Didea.is.internal=true -Didea.plugins.path=/Users/androhi/GitHub/AndroidDrawableViewer/build/idea-sandbox/plugins -Didea.smooth.progress=false -Didea.system.path=/Users/androhi/GitHub/AndroidDrawableViewer/build/idea-sandbox/system -Xbootclasspath/a:/Users/androhi/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/14.1.4/e1a65bb05a50274b0aea828df954df82296eecce/ideaIC-14.1.4/lib/boot.jar -XX:MaxPermSize=250m -Xms256m -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=JP -Duser.language=ja -Duser.variant -ea 
+2015-09-18 00:41:36,837 [     72]   INFO -        #com.intellij.idea.Main - JNA library loaded (64-bit) in 53 ms 
+2015-09-18 00:41:36,847 [     82]   INFO -        #com.intellij.idea.Main - initializing environment 
+2015-09-18 00:41:36,848 [     83]   WARN - .intellij.util.EnvironmentUtil - can't get shell environment 
+java.lang.Exception: bin:/Users/androhi/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/14.1.4/e1a65bb05a50274b0aea828df954df82296eecce/ideaIC-14.1.4/bin
+	at com.intellij.util.EnvironmentUtil.getShellEnv(EnvironmentUtil.java:150)
+	at com.intellij.util.EnvironmentUtil.access$000(EnvironmentUtil.java:41)
+	at com.intellij.util.EnvironmentUtil$1.call(EnvironmentUtil.java:54)
+	at com.intellij.util.EnvironmentUtil$1.call(EnvironmentUtil.java:50)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2015-09-18 00:42:33,215 [  56450]   INFO - llij.ide.plugins.PluginManager - 30 plugins initialized in 698 ms 
+2015-09-18 00:42:33,219 [  56454]   INFO - llij.ide.plugins.PluginManager - Loaded bundled plugins: Android Support (10.1.1.0), Ant Support (1.0), Bytecode Viewer (0.1), CVS Integration (11), Copyright (8.1), Coverage, Eclipse Integration (3.0), EditorConfig (1.0), Git Integration (8.1), GitHub, Gradle, Groovy (9.0), I18n for Java, IDEA CORE, IntelliLang (8.0), JUnit (1.0), Java Bytecode Decompiler (0.1), JavaFX (1.0), Maven Integration, Plugin DevKit (1.0), Properties Support, Subversion Integration (1.1), Task Management (1.0), Terminal (0.1), TestNG-J (8.0), UI Designer, XPathView + XSLT Support (4), XSLT-Debugger (1.4), hg4idea (10.0) 
+2015-09-18 00:42:33,219 [  56454]   INFO - llij.ide.plugins.PluginManager - Loaded custom plugins: Android Drawable Viewer (1.3) 
+2015-09-18 00:42:34,569 [  57804]   INFO - ellij.vfs.persistent.FSRecords - Marking VFS as corrupted 
+2015-09-18 00:42:34,573 [  57808]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=200; buffer=10; max=456654848 
+2015-09-18 00:42:34,649 [  57884]   INFO - api.vfs.impl.local.FileWatcher - Native file watcher is not supported on this platform 
+2015-09-18 00:42:35,171 [  58406]   INFO - .history.utils.LocalHistoryLog - local history version mismatch (was: 0, expected: 5), rebuilding... 
+2015-09-18 00:42:35,171 [  58406]   INFO - .history.utils.LocalHistoryLog - FS has been rebuild, rebuilding local history... 
+2015-09-18 00:42:35,214 [  58449]   INFO - .history.utils.LocalHistoryLog - Checking local history storage... 
+2015-09-18 00:42:35,218 [  58453]   INFO - .history.utils.LocalHistoryLog - Local history storage seems to be ok (took 0 sec) 
+2015-09-18 00:42:36,803 [  60038]   INFO - rains.ide.BuiltInServerManager - built-in server started, port 63343 
+2015-09-18 00:42:38,033 [  61268]   INFO -                  TestNG Runner - Create TestNG Template Configuration 
+2015-09-18 00:42:38,198 [  61433]   INFO - ellij.project.impl.ProjectImpl - 20 project components initialized in 831 ms 
+2015-09-18 00:42:38,199 [  61434]   INFO - le.impl.ModuleManagerComponent - 0 module(s) loaded in 0 ms 
+2015-09-18 00:42:38,935 [  62170]   INFO - tellij.xml.Html5SchemaProvider - HTML5_SCHEMA_LOCATION = /Users/androhi/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/14.1.4/e1a65bb05a50274b0aea828df954df82296eecce/ideaIC-14.1.4/lib/idea.jar!/resources/html5-schema/html5.rnc 
+2015-09-18 00:42:38,935 [  62170]   INFO - tellij.xml.Html5SchemaProvider - XHTML5_SCHEMA_LOCATION = /Users/androhi/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/14.1.4/e1a65bb05a50274b0aea828df954df82296eecce/ideaIC-14.1.4/lib/idea.jar!/resources/html5-schema/xhtml5.rnc 
+2015-09-18 00:42:38,935 [  62170]   INFO - tellij.xml.Html5SchemaProvider - CHARS_DTD_LOCATION = /Users/androhi/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/14.1.4/e1a65bb05a50274b0aea828df954df82296eecce/ideaIC-14.1.4/lib/idea.jar!/resources/html5-schema/html5chars.ent 
+2015-09-18 00:42:39,153 [  62388]   INFO - pl.stores.ApplicationStoreImpl - 83 application components initialized in 5873 ms 
+2015-09-18 00:42:39,181 [  62416]   INFO - .intellij.idea.IdeaApplication - App initialization took 69360 ms 
+2015-09-18 00:42:39,181 [  62416]   INFO - llij.ide.plugins.PluginManager - org.intellij.groovy loaded 151 classes 
+2015-09-18 00:42:39,181 [  62416]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.android loaded 130 classes 
+2015-09-18 00:42:39,181 [  62416]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.idea.maven loaded 74 classes 
+2015-09-18 00:42:39,181 [  62416]   INFO - llij.ide.plugins.PluginManager - com.intellij.properties loaded 25 classes 
+2015-09-18 00:42:39,181 [  62416]   INFO - llij.ide.plugins.PluginManager - AntSupport loaded 21 classes 
+2015-09-18 00:42:39,181 [  62416]   INFO - llij.ide.plugins.PluginManager - XPathView loaded 20 classes 
+2015-09-18 00:42:39,181 [  62416]   INFO - llij.ide.plugins.PluginManager - com.intellij.tasks loaded 13 classes 
+2015-09-18 00:42:39,181 [  62416]   INFO - llij.ide.plugins.PluginManager - Coverage loaded 12 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.plugins.javaFX loaded 11 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - Subversion loaded 10 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - TestNG-J loaded 9 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.java.decompiler loaded 8 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - DevKit loaded 8 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - org.editorconfig.editorconfigjetbrains loaded 7 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - com.intellij.uiDesigner loaded 7 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - JUnit loaded 7 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.plugins.gradle loaded 6 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - com.intellij.copyright loaded 5 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - Git4Idea loaded 3 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.idea.eclipse loaded 2 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - CVS loaded 2 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.plugins.terminal loaded 2 classes 
+2015-09-18 00:42:39,182 [  62417]   INFO - llij.ide.plugins.PluginManager - hg4idea loaded 1 classes 
+2015-09-18 00:43:05,968 [  89203]   INFO -                  TestNG Runner - Create TestNG Template Configuration 
+2015-09-18 00:43:07,274 [  90509]   INFO - ellij.project.impl.ProjectImpl - 141 project components initialized in 2914 ms 
+2015-09-18 00:43:07,704 [  90939]   INFO - le.impl.ModuleManagerComponent - 2 module(s) loaded in 429 ms 
+2015-09-18 00:43:08,009 [  91244]   WARN - j.ui.mac.MacMainFrameDecorator - no url bundle present. 
+To use platform protocol handler to open external links specify required protocols in the mac app layout section of the build file
+Example: args.urlSchemes = ["your-protocol"] will handle following links: your-protocol://open?file=file&line=line 
+2015-09-18 00:43:09,712 [  92947]   INFO - penapi.project.DumbServiceImpl - Running dumb mode task: wait for file watcher 
+2015-09-18 00:43:09,722 [  92957]   INFO - penapi.project.DumbServiceImpl - updateFinished 
+2015-09-18 00:43:09,733 [  92968]   INFO - g.FileBasedIndexProjectHandler - Has changed files: false; project=Project '/Users/androhi/AndroidStudioProjects/SampleAndroidProject' SampleAndroidProject 
+2015-09-18 00:43:09,763 [  92998]   INFO - s.plugins.gradle.GradleManager - Instructing gradle to use java from /Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home 
+2015-09-18 00:43:09,768 [  93003]   INFO - s.plugins.gradle.GradleManager - Instructing gradle to use java from /Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home 
+2015-09-18 00:43:09,797 [  93032]   INFO - penapi.project.DumbServiceImpl - Running dumb mode task: com.intellij.util.indexing.UnindexedFilesUpdater@12806684 
+2015-09-18 00:43:12,679 [  95914]   INFO - .project.GradleExecutionHelper - Passing command-line args to Gradle Tooling API: [-Pandroid.injected.build.model.only=true, -Pandroid.injected.build.model.only.advanced=true, -Pandroid.injected.invoked.from.ide=true, --init-script, /private/var/folders/wp/nlzt_8gj5pbb4r4mlb4tyggr0000gn/T/ijinit0.gradle] 
+2015-09-18 00:43:14,792 [  98027]   INFO - tartup.impl.StartupManagerImpl - /Users/androhi/AndroidStudioProjects/SampleAndroidProject/.idea/misc.xml case-sensitivity: false 
+2015-09-18 00:43:17,606 [ 100841]   INFO - s.impl.ProjectManagerComponent - refresh 
+2015-09-18 00:43:19,693 [ 102928]   INFO - tor.impl.FileEditorManagerImpl - Project opening took 15423 ms 
+2015-09-18 00:43:19,695 [ 102930]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.plugins.gradle loaded 1016 classes 
+2015-09-18 00:43:19,695 [ 102930]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.android loaded 987 classes 
+2015-09-18 00:43:19,695 [ 102930]   INFO - llij.ide.plugins.PluginManager - org.intellij.groovy loaded 229 classes 
+2015-09-18 00:43:19,695 [ 102930]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.idea.maven loaded 212 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - com.intellij.uiDesigner loaded 174 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - com.intellij.tasks loaded 86 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - Git4Idea loaded 64 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - hg4idea loaded 50 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - com.intellij.properties loaded 49 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - Coverage loaded 36 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - AntSupport loaded 32 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - XPathView loaded 32 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - Subversion loaded 27 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.plugins.javaFX loaded 19 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - DevKit loaded 17 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - org.editorconfig.editorconfigjetbrains loaded 16 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.plugins.github loaded 14 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.plugins.terminal loaded 13 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.idea.eclipse loaded 12 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - TestNG-J loaded 11 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - com.intellij.copyright loaded 10 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - JUnit loaded 9 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - org.jetbrains.java.decompiler loaded 8 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - com.intellij.java-i18n loaded 6 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - CVS loaded 5 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - org.intellij.intelliLang loaded 2 classes 
+2015-09-18 00:43:19,696 [ 102931]   INFO - llij.ide.plugins.PluginManager - XSLT-Debugger loaded 2 classes 
+2015-09-18 00:43:19,697 [ 102932]   INFO - llij.ide.plugins.PluginManager - com.androhi.androiddrawableviewer loaded 2 classes 
+2015-09-18 00:43:29,130 [ 112365]   INFO - indexing.UnindexedFilesUpdater - Indexable files iterated in 18819 ms 
+2015-09-18 00:43:29,132 [ 112367]   INFO - indexing.UnindexedFilesUpdater - Unindexed files update started: 50310 files to update 
+2015-09-18 00:44:02,254 [ 145489]   INFO - penapi.project.DumbServiceImpl - cancel com.intellij.util.indexing.UnindexedFilesUpdater@12806684 
+2015-09-18 00:44:02,258 [ 145493]   INFO - penapi.project.DumbServiceImpl - cancel com.intellij.openapi.roots.impl.PushedFilePropertiesUpdaterImpl$6@74ba6002 
+2015-09-18 00:44:02,259 [ 145494]   INFO - s.impl.ProjectManagerComponent - sync roots 
+java.lang.Throwable: sync roots
+	at com.intellij.openapi.roots.impl.ProjectRootManagerComponent.doSynchronizeRoots(ProjectRootManagerComponent.java:326)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl.fireRootsChanged(ProjectRootManagerImpl.java:428)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl.access$100(ProjectRootManagerImpl.java:56)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl$BatchSession.fireChange(ProjectRootManagerImpl.java:107)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl$BatchSession.rootsChanged(ProjectRootManagerImpl.java:120)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl.mergeRootsChangesDuring(ProjectRootManagerImpl.java:333)
+	at com.android.tools.idea.gradle.project.ProjectSetUpTask$2$1$1.run(ProjectSetUpTask.java:117)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runWriteAction(ApplicationImpl.java:931)
+	at com.android.tools.idea.gradle.project.ProjectSetUpTask$2$1.run(ProjectSetUpTask.java:113)
+	at com.intellij.util.ui.UIUtil.invokeAndWaitIfNeeded(UIUtil.java:2369)
+	at com.android.tools.idea.gradle.project.ProjectSetUpTask$2.run(ProjectSetUpTask.java:110)
+	at com.intellij.ide.startup.impl.StartupManagerImpl$7.run(StartupManagerImpl.java:369)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:311)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:749)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:702)
+	at java.awt.EventQueue$3.run(EventQueue.java:696)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:719)
+	at com.intellij.ide.IdeEventQueue.defaultDispatchEvent(IdeEventQueue.java:734)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.java:569)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:382)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2015-09-18 00:44:02,299 [ 145534]   INFO - penapi.project.DumbServiceImpl - cancel com.intellij.util.indexing.UnindexedFilesUpdater@12806684 
+2015-09-18 00:44:02,299 [ 145534]   INFO - penapi.project.DumbServiceImpl - cancel com.intellij.openapi.roots.impl.PushedFilePropertiesUpdaterImpl$6@74ba6002 
+2015-09-18 00:44:02,299 [ 145534]   INFO - penapi.project.DumbServiceImpl - cancel com.intellij.util.indexing.UnindexedFilesUpdater@12ba954e 
+2015-09-18 00:44:02,300 [ 145535]   INFO - s.impl.ProjectManagerComponent - sync roots 
+java.lang.Throwable: sync roots
+	at com.intellij.openapi.roots.impl.ProjectRootManagerComponent.doSynchronizeRoots(ProjectRootManagerComponent.java:326)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl.fireRootsChanged(ProjectRootManagerImpl.java:428)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl.access$100(ProjectRootManagerImpl.java:56)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl$BatchSession.fireChange(ProjectRootManagerImpl.java:107)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl$BatchSession.rootsChanged(ProjectRootManagerImpl.java:120)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl.makeRootsChange(ProjectRootManagerImpl.java:366)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl$RootProviderChangeListener.rootSetChanged(ProjectRootManagerImpl.java:682)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at com.intellij.util.EventDispatcher.dispatch(EventDispatcher.java:88)
+	at com.intellij.util.EventDispatcher.access$100(EventDispatcher.java:34)
+	at com.intellij.util.EventDispatcher$1.invoke(EventDispatcher.java:68)
+	at com.sun.proxy.$Proxy74.rootSetChanged(Unknown Source)
+	at com.intellij.openapi.roots.impl.RootProviderBaseImpl.fireRootSetChanged(RootProviderBaseImpl.java:45)
+	at com.intellij.openapi.roots.impl.libraries.LibraryImpl.commit(LibraryImpl.java:603)
+	at com.intellij.openapi.roots.impl.libraries.LibraryImpl.commit(LibraryImpl.java:582)
+	at com.android.tools.idea.gradle.project.PostProjectSetupTasksExecutor.attachSourcesToLibraries(PostProjectSetupTasksExecutor.java:261)
+	at com.android.tools.idea.gradle.project.PostProjectSetupTasksExecutor.access$000(PostProjectSetupTasksExecutor.java:99)
+	at com.android.tools.idea.gradle.project.PostProjectSetupTasksExecutor$1.run(PostProjectSetupTasksExecutor.java:165)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runWriteAction(ApplicationImpl.java:931)
+	at com.android.tools.idea.gradle.project.PostProjectSetupTasksExecutor.onProjectSyncCompletion(PostProjectSetupTasksExecutor.java:162)
+	at com.android.tools.idea.gradle.project.ProjectSetUpTask$2$1.run(ProjectSetUpTask.java:129)
+	at com.intellij.util.ui.UIUtil.invokeAndWaitIfNeeded(UIUtil.java:2369)
+	at com.android.tools.idea.gradle.project.ProjectSetUpTask$2.run(ProjectSetUpTask.java:110)
+	at com.intellij.ide.startup.impl.StartupManagerImpl$7.run(StartupManagerImpl.java:369)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:311)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:749)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:702)
+	at java.awt.EventQueue$3.run(EventQueue.java:696)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:719)
+	at com.intellij.ide.IdeEventQueue.defaultDispatchEvent(IdeEventQueue.java:734)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.java:569)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:382)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2015-09-18 00:44:04,111 [ 147346]   INFO - CompilerWorkspaceConfiguration - Available processors: 4 
+2015-09-18 00:44:04,158 [ 147393]   INFO - ij.compiler.impl.CompileDriver - COMPILATION STARTED (BUILD PROCESS) 
+2015-09-18 00:44:04,468 [ 147703]   INFO - indexing.UnindexedFilesUpdater - Unindexed files update canceled 
+2015-09-18 00:44:04,474 [ 147709]   INFO - penapi.project.DumbServiceImpl - Running dumb mode task: initial refresh 
+2015-09-18 00:44:04,524 [ 147759]   INFO - penapi.project.DumbServiceImpl - Running dumb mode task: com.intellij.util.indexing.UnindexedFilesUpdater@732c790b 
+2015-09-18 00:44:05,137 [ 148372]   INFO - s.plugins.gradle.GradleManager - Instructing gradle to use java from /Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home 
+2015-09-18 00:44:06,585 [ 149820]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: Build process started. Classpath: /Users/androhi/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/14.1.4/e1a65bb05a50274b0aea828df954df82296eecce/ideaIC-14.1.4/lib/jps-launcher.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/lib/tools.jar:/Users/androhi/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/14.1.4/e1a65bb05a50274b0aea828df954df82296eecce/ideaIC-14.1.4/lib/optimizedFileManager.jar:/Users/androhi/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/14.1.4/e1a65bb05a50274b0aea828df954df82296eecce/ideaIC-14.1.4/lib/ecj-4.4.jar 
+2015-09-18 00:44:07,431 [ 150666]   INFO - indexing.UnindexedFilesUpdater - Indexable files iterated in 2896 ms 
+2015-09-18 00:44:07,435 [ 150670]   INFO - indexing.UnindexedFilesUpdater - Unindexed files update started: 41336 files to update 
+2015-09-18 00:44:12,962 [ 156197]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: 00:44:12.921 [Connection worker] DEBUG o.g.t.i.provider.DefaultConnection - Tooling API provider 2.2.1 created. 
+2015-09-18 00:44:14,710 [ 157945]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: 00:44:14.168 [Connection worker] DEBUG o.g.t.i.provider.ProviderConnection - Configuring logging to level: INFO 
+2015-09-18 00:44:14,711 [ 157946]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: Tooling API is using target Gradle version: 2.2.1. 
+2015-09-18 00:44:15,781 [ 159016]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: Connected to daemon DaemonInfo{pid=5294, address=[8d48a3ff-8139-417f-959a-07466994cfd3 port:50974, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]], idle=true, context=DefaultDaemonContext[uid=92b28871-5cc5-4a79-ba67-ce582a0c2b1d,javaHome=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home,daemonRegistryDir=/Users/androhi/.gradle/daemon,pid=5294,idleTimeout=10800000,daemonOpts=-XX:MaxPermSize=256m,-XX:+HeapDumpOnOutOfMemoryError,-Xmx1024m,-Dfile.encoding=UTF-8,-Duser.country=JP,-Duser.language=ja,-Duser.variant]}. Dispatching request Build{id=029d20b1-dfa0-424c-a2d0-6ec88e475281.1, currentDir=/Users/androhi/GitHub/AndroidDrawableViewer/build/idea-sandbox/system/compile-server}. 
+2015-09-18 00:44:16,428 [ 159663]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: Configuration on demand is an incubating feature. 
+2015-09-18 00:44:26,443 [ 169678]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:preBuild 
+2015-09-18 00:44:26,525 [ 169760]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:26,673 [ 169908]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:preDebugBuild 
+2015-09-18 00:44:26,681 [ 169916]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:26,689 [ 169924]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:checkDebugManifest 
+2015-09-18 00:44:26,699 [ 169934]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:preReleaseBuild UP-TO-DATE 
+2015-09-18 00:44:26,707 [ 169942]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:prepareComAndroidSupportAppcompatV72220Library 
+2015-09-18 00:44:27,222 [ 170457]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:27,229 [ 170464]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:prepareComAndroidSupportSupportV42220Library 
+2015-09-18 00:44:27,236 [ 170471]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:27,250 [ 170485]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:prepareDebugDependencies 
+2015-09-18 00:44:27,281 [ 170516]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:compileDebugAidl 
+2015-09-18 00:44:27,316 [ 170551]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:27,324 [ 170559]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:compileDebugRenderscript 
+2015-09-18 00:44:27,428 [ 170663]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:27,428 [ 170663]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:generateDebugBuildConfig 
+2015-09-18 00:44:27,733 [ 170968]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:27,733 [ 170968]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:generateDebugAssets 
+2015-09-18 00:44:27,735 [ 170970]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:27,742 [ 170977]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:mergeDebugAssets 
+2015-09-18 00:44:27,750 [ 170985]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:27,750 [ 170985]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:generateDebugResValues 
+2015-09-18 00:44:27,769 [ 171004]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:27,770 [ 171005]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:generateDebugResources 
+2015-09-18 00:44:27,772 [ 171007]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:27,779 [ 171014]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:mergeDebugResources 
+2015-09-18 00:44:28,217 [ 171452]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:28,217 [ 171452]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:processDebugManifest 
+2015-09-18 00:44:28,297 [ 171532]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:28,297 [ 171532]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:processDebugResources 
+2015-09-18 00:44:28,523 [ 171758]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:28,523 [ 171758]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:generateDebugSources UP-TO-DATE 
+2015-09-18 00:44:28,525 [ 171760]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:preDebugAndroidTestBuild 
+2015-09-18 00:44:28,526 [ 171761]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:28,528 [ 171763]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:prepareDebugAndroidTestDependencies 
+2015-09-18 00:44:28,537 [ 171772]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:compileDebugAndroidTestAidl 
+2015-09-18 00:44:28,538 [ 171773]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:28,557 [ 171792]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:processDebugAndroidTestManifest 
+2015-09-18 00:44:28,605 [ 171840]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:28,613 [ 171848]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:compileDebugAndroidTestRenderscript 
+2015-09-18 00:44:28,627 [ 171862]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:28,639 [ 171874]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:generateDebugAndroidTestBuildConfig 
+2015-09-18 00:44:28,647 [ 171882]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:28,647 [ 171882]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:generateDebugAndroidTestAssets UP-TO-DATE 
+2015-09-18 00:44:28,647 [ 171882]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:mergeDebugAndroidTestAssets 
+2015-09-18 00:44:28,655 [ 171890]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:28,655 [ 171890]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:generateDebugAndroidTestResValues 
+2015-09-18 00:44:28,663 [ 171898]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:28,663 [ 171898]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:generateDebugAndroidTestResources UP-TO-DATE 
+2015-09-18 00:44:28,663 [ 171898]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:mergeDebugAndroidTestResources 
+2015-09-18 00:44:28,670 [ 171905]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:28,672 [ 171907]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:processDebugAndroidTestResources 
+2015-09-18 00:44:28,829 [ 172064]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:28,829 [ 172064]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: :app:generateDebugAndroidTestSources 
+2015-09-18 00:44:28,842 [ 172077]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: UP-TO-DATE 
+2015-09-18 00:44:28,857 [ 172092]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: BUILD SUCCESSFUL 
+2015-09-18 00:44:28,864 [ 172099]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: Total time: 16.5 secs 
+2015-09-18 00:44:29,043 [ 172278]   INFO - j.compiler.server.BuildManager - BUILDER_PROCESS [stdout]: Received result DaemonCommandResult[type=Success, value=org.gradle.tooling.internal.provider.BuildActionResult@1f520f21] from daemon DaemonInfo{pid=5294, address=[8d48a3ff-8139-417f-959a-07466994cfd3 port:50974, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]], idle=true, context=DefaultDaemonContext[uid=92b28871-5cc5-4a79-ba67-ce582a0c2b1d,javaHome=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home,daemonRegistryDir=/Users/androhi/.gradle/daemon,pid=5294,idleTimeout=10800000,daemonOpts=-XX:MaxPermSize=256m,-XX:+HeapDumpOnOutOfMemoryError,-Xmx1024m,-Dfile.encoding=UTF-8,-Duser.country=JP,-Duser.language=ja,-Duser.variant]}. 
+2015-09-18 00:44:29,765 [ 173000]   INFO - penapi.project.DumbServiceImpl - cancel com.intellij.util.indexing.UnindexedFilesUpdater@732c790b 
+2015-09-18 00:44:29,766 [ 173001]   INFO - s.impl.ProjectManagerComponent - sync roots 
+java.lang.Throwable: sync roots
+	at com.intellij.openapi.roots.impl.ProjectRootManagerComponent.doSynchronizeRoots(ProjectRootManagerComponent.java:326)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl.fireRootsChanged(ProjectRootManagerImpl.java:428)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl.access$100(ProjectRootManagerImpl.java:56)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl$BatchSession.fireChange(ProjectRootManagerImpl.java:107)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl$BatchSession.rootsChanged(ProjectRootManagerImpl.java:120)
+	at com.intellij.openapi.roots.impl.ProjectRootManagerImpl.makeRootsChange(ProjectRootManagerImpl.java:366)
+	at com.intellij.openapi.module.impl.ModuleManagerImpl.commitModel(ModuleManagerImpl.java:954)
+	at com.intellij.openapi.module.impl.ModuleManagerImpl.access$1300(ModuleManagerImpl.java:73)
+	at com.intellij.openapi.module.impl.ModuleManagerImpl$ModuleModelImpl.commitWithRunnable(ModuleManagerImpl.java:850)
+	at com.intellij.openapi.module.impl.ModuleManagerImpl.commitModelWithRunnable(ModuleManagerImpl.java:599)
+	at com.intellij.openapi.roots.impl.ModifiableModelCommitter.multiCommit(ModifiableModelCommitter.java:48)
+	at com.intellij.openapi.roots.impl.ModifiableModelCommitter.multiCommit(ModifiableModelCommitter.java:37)
+	at com.intellij.openapi.roots.impl.ModuleRootManagerImpl.commitModel(ModuleRootManagerImpl.java:175)
+	at com.intellij.openapi.roots.impl.RootModelImpl.commit(RootModelImpl.java:344)
+	at com.android.tools.idea.gradle.compiler.PostProjectBuildTasksExecutor.excludeOutputFolders(PostProjectBuildTasksExecutor.java:286)
+	at com.android.tools.idea.gradle.compiler.PostProjectBuildTasksExecutor.excludeOutputFolders(PostProjectBuildTasksExecutor.java:231)
+	at com.android.tools.idea.gradle.compiler.PostProjectBuildTasksExecutor.access$000(PostProjectBuildTasksExecutor.java:82)
+	at com.android.tools.idea.gradle.compiler.PostProjectBuildTasksExecutor$1$1.run(PostProjectBuildTasksExecutor.java:170)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runWriteAction(ApplicationImpl.java:931)
+	at com.android.tools.idea.gradle.compiler.PostProjectBuildTasksExecutor$1.run(PostProjectBuildTasksExecutor.java:167)
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:301)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:749)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:702)
+	at java.awt.EventQueue$3.run(EventQueue.java:696)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:719)
+	at com.intellij.ide.IdeEventQueue.defaultDispatchEvent(IdeEventQueue.java:734)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.java:569)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:382)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2015-09-18 00:44:29,771 [ 173006]   INFO - indexing.UnindexedFilesUpdater - Unindexed files update canceled 
+2015-09-18 00:44:29,776 [ 173011]   INFO - penapi.project.DumbServiceImpl - Running dumb mode task: com.intellij.util.indexing.UnindexedFilesUpdater@2eb25dd0 
+2015-09-18 00:44:29,896 [ 173131]   INFO - lij.compiler.impl.CompilerUtil - 	COMPILATION FINISHED (BUILD PROCESS); Errors: 0; warnings: 0 took 25690 ms: 0 min 25sec 
+2015-09-18 00:44:31,743 [ 174978]   INFO - indexing.UnindexedFilesUpdater - Indexable files iterated in 1962 ms 
+2015-09-18 00:44:31,744 [ 174979]   INFO - indexing.UnindexedFilesUpdater - Unindexed files update started: 31783 files to update 
+2015-09-18 00:45:20,756 [ 223991]   INFO - indexing.UnindexedFilesUpdater - Unindexed files update done in 49012 ms 
+2015-09-18 00:45:20,772 [ 224007]   INFO - penapi.project.DumbServiceImpl - Running dumb mode task: com.intellij.openapi.roots.impl.PushedFilePropertiesUpdaterImpl$6@4dd94b7a 
+2015-09-18 00:45:20,789 [ 224024]   INFO - penapi.project.DumbServiceImpl - updateFinished 
+2015-09-18 00:45:20,790 [ 224025]   INFO - g.FileBasedIndexProjectHandler - Has changed files: false; project=Project '/Users/androhi/AndroidStudioProjects/SampleAndroidProject' SampleAndroidProject 
+2015-09-18 00:45:21,258 [ 224493]   INFO - lij.tasks.impl.TaskManagerImpl - Updating issues cache (every 20 min) 

@@ -1,0 +1,36 @@
+2015-09-18 00:44:06,584 [      0]   INFO - etbrains.jps.cmdline.BuildMain - Build process started. Classpath: /Users/androhi/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/14.1.4/e1a65bb05a50274b0aea828df954df82296eecce/ideaIC-14.1.4/lib/jps-launcher.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/lib/tools.jar:/Users/androhi/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/14.1.4/e1a65bb05a50274b0aea828df954df82296eecce/ideaIC-14.1.4/lib/optimizedFileManager.jar:/Users/androhi/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/14.1.4/e1a65bb05a50274b0aea828df954df82296eecce/ideaIC-14.1.4/lib/ecj-4.4.jar
+2015-09-18 00:44:07,894 [   1310]   INFO - etbrains.jps.cmdline.BuildMain - Connection to IDE established in 1231 ms
+2015-09-18 00:44:08,420 [   1836]   INFO - jps.cmdline.JpsModelLoaderImpl - Loading model: project path = /Users/androhi/AndroidStudioProjects/SampleAndroidProject, global options path = /Users/androhi/GitHub/AndroidDrawableViewer/build/idea-sandbox/config/options
+2015-09-18 00:44:09,863 [   3279]   INFO - jps.cmdline.JpsModelLoaderImpl - Model loaded in 1443 ms
+2015-09-18 00:44:09,863 [   3279]   INFO - jps.cmdline.JpsModelLoaderImpl - Project has 2 modules, 3 libraries
+2015-09-18 00:44:10,360 [   3776]   INFO - .JpsGradleExtensionServiceImpl - /Users/androhi/GitHub/AndroidDrawableViewer/build/idea-sandbox/system/compile-server/sampleandroidproject_843e368a/gradle/configuration.xml (No such file or directory)
+java.io.FileNotFoundException: /Users/androhi/GitHub/AndroidDrawableViewer/build/idea-sandbox/system/compile-server/sampleandroidproject_843e368a/gradle/configuration.xml (No such file or directory)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.intellij.openapi.util.JDOMUtil.loadDocument(JDOMUtil.java:337)
+	at org.jetbrains.jps.gradle.model.impl.JpsGradleExtensionServiceImpl.getGradleProjectConfiguration(JpsGradleExtensionServiceImpl.java:125)
+	at org.jetbrains.jps.gradle.model.impl.JpsGradleExtensionServiceImpl.getGradleProjectConfiguration(JpsGradleExtensionServiceImpl.java:113)
+	at org.jetbrains.jps.gradle.model.impl.GradleResourcesTarget.computeRootDescriptors(GradleResourcesTarget.java:69)
+	at org.jetbrains.jps.builders.impl.BuildRootIndexImpl.addRoots(BuildRootIndexImpl.java:72)
+	at org.jetbrains.jps.builders.impl.BuildRootIndexImpl.<init>(BuildRootIndexImpl.java:62)
+	at org.jetbrains.jps.cmdline.BuildRunner.load(BuildRunner.java:83)
+	at org.jetbrains.jps.cmdline.BuildSession.runBuild(BuildSession.java:265)
+	at org.jetbrains.jps.cmdline.BuildSession.run(BuildSession.java:124)
+	at org.jetbrains.jps.cmdline.BuildMain$MyMessageHandler$1.run(BuildMain.java:242)
+	at org.jetbrains.jps.service.impl.SharedThreadPoolImpl$1.run(SharedThreadPoolImpl.java:41)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2015-09-18 00:44:10,547 [   3963]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=200; buffer=10; max=631767040
+2015-09-18 00:44:11,457 [   4873]   INFO - .incremental.IncProjectBuilder - Building project; isRebuild:true; isMake:false parallel compilation:false
+2015-09-18 00:44:11,476 [   4892]   INFO - r.api.ClassFilesIndicesBuilder - class files data index disabled
+2015-09-18 00:44:11,588 [   5004]   INFO - .incremental.IncProjectBuilder - Cleaned output directories in 2
+2015-09-18 00:44:11,980 [   5396]   INFO - der.AndroidGradleTargetBuilder - Using execution settings: BuilderExecutionSettings[buildMode=SOURCE_GEN, commandLineOptions=[], embeddedModeEnabled=false, gradleHomeDir=/Users/androhi/.gvm/gradle/2.2.1, gradleServiceDir=null, javaHomeDir=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home, jvmOptions=[], gradleTasksToInvoke=[:app:generateDebugSources, :app:generateDebugAndroidTestSources], offlineBuild=false, parallelBuild=false, projectDir=/Users/androhi/AndroidStudioProjects/SampleAndroidProject, verboseLoggingEnabled=false]
+2015-09-18 00:44:11,983 [   5399]   INFO - der.AndroidGradleTargetBuilder - Gradle build using tasks: [:app:generateDebugSources, :app:generateDebugAndroidTestSources]
+2015-09-18 00:44:12,012 [   5428]   INFO - dle.util.AndroidGradleSettings - Found Android SDK home at '/Users/androhi/Library/Android/sdk' (from local.properties file)
+2015-09-18 00:44:12,013 [   5429]   INFO - der.AndroidGradleTargetBuilder - About to build project 'SampleAndroidProject' located at /Users/androhi/AndroidStudioProjects/SampleAndroidProject
+2015-09-18 00:44:12,358 [   5774]   INFO - der.AndroidGradleTargetBuilder - Build JVM args: []
+2015-09-18 00:44:12,358 [   5774]   INFO - der.AndroidGradleTargetBuilder - Build command line args: [-Pandroid.injected.invoked.from.ide=true, --configure-on-demand]
+2015-09-18 00:44:29,654 [  23070]   INFO - rains.jps.cmdline.BuildSession - Build duration: 'Android Gradle Target Builder' builder took 17153 ms, 0 sources processed
