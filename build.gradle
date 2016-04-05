@@ -1,16 +1,29 @@
+buildscript {
+    ext.kotlin_version = '1.0.1-release-IJ143-32'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
 plugins {
-    id "org.jetbrains.intellij" version "0.0.20"
+    id "org.jetbrains.intellij" version "0.0.35"
 }
 
 apply plugin: 'org.jetbrains.intellij'
-apply plugin: 'java'
-
-sourceCompatibility = 1.6
+apply plugin: 'kotlin'
 
 intellij {
-    version '14.1.4'
-    plugins 'coverage'
+    version '15.0.3'
+    plugins 'android'
     pluginName 'AndroidDrawableViewer'
+    updateSinceUntilBuild false
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.11'
 }
 
 group 'com.androhi'
