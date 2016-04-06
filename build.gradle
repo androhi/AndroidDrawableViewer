@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.0.1'
+    ext.kotlin_version = '1.0.1-2'
     repositories {
         mavenCentral()
     }
@@ -9,7 +9,7 @@ buildscript {
 }
 
 plugins {
-    id "org.jetbrains.intellij" version "0.0.35"
+    id "org.jetbrains.intellij" version "0.0.43"
 }
 
 apply plugin: 'org.jetbrains.intellij'
@@ -17,7 +17,6 @@ apply plugin: 'kotlin'
 
 intellij {
     version '15.0.3'
-    plugins 'android'
     pluginName 'AndroidDrawableViewer'
     updateSinceUntilBuild false
 }
@@ -34,5 +33,6 @@ repositories {
 }
 
 dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
