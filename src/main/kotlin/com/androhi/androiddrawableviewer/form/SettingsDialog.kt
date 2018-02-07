@@ -99,13 +99,13 @@ class SettingsDialog(private val project: Project?) : DialogWrapper(project, tru
             it.isDrawableHdpi = checkDrawableHdpi?.isSelected == true
             it.isDrawableXhdpi = checkDrawableXhdpi?.isSelected == true
             it.isDrawableXxhdpi = checkDrawableXxhdpi?.isSelected == true
-            it.isDrawableXxxhdpi = checkDrawableXxhdpi?.isSelected == true
+            it.isDrawableXxxhdpi = checkDrawableXxxhdpi?.isSelected == true
 
             it.isMipmapMdpi = checkMipmapMdpi?.isSelected == true
             it.isMipmapHdpi = checkMipmapHdpi?.isSelected == true
             it.isMipmapXhdpi = checkMipmapXhdpi?.isSelected == true
             it.isMipmapXxhdpi = checkMipmapXxhdpi?.isSelected == true
-            it.isMipmapXxxhdpi = checkMipmapXxhdpi?.isSelected == true
+            it.isMipmapXxxhdpi = checkMipmapXxxhdpi?.isSelected == true
         }
 
         resetContent()

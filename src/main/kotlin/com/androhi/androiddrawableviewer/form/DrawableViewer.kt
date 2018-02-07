@@ -115,7 +115,18 @@ class DrawableViewer(private val project: Project) : SimpleToolWindowPanel(true,
         return createScrollPane(createPanels(resDirPath))
     }
 
-    private fun getFileList(targetDirPath: String): Array<File> = File(targetDirPath).listFiles()
+    private fun getFileList(targetDirPath: String): Array<File> {
+        val targetDir = File(targetDirPath)
+        return try {
+            if (targetDir.exists()) {
+                targetDir.listFiles()
+            } else {
+                emptyArray()
+            }
+        } catch (e: SecurityException) {
+            emptyArray()
+        }
+    }
 
     private fun saveFileName(fileList: Array<File>?) =
             fileList?.map { it.name }?.filter { isImageFile(it) && isNotSavedFile(it) }?.let {

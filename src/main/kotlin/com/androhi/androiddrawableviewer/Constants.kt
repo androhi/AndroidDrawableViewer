@@ -2,7 +2,7 @@ package com.androhi.androiddrawableviewer
 
 class Constants {
     companion object {
-        const val TOOL_WINDOW_ID = "DrawableViewer"
+        const val TOOL_WINDOW_ID = "Drawable Viewer"
 
         const val DEFAULT_RESOURCE_PATH = "/app/src/main/res"
 
