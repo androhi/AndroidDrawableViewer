@@ -25,8 +25,16 @@ data class DrawableModel(val resDirPath: String, val fileName: String) {
     }
 
     fun getSupportedDrawableDensityName(): String =
-            drawableDensityList.joinToString(" / ")
+            if (drawableDensityList.isEmpty()) {
+                "-"
+            } else {
+                drawableDensityList.joinToString(" / ")
+            }
 
     fun getSupportedMipmapDensityName(): String =
-            mipmapDensityList.joinToString(" / ")
+            if (mipmapDensityList.isEmpty()) {
+                "-"
+            } else {
+                mipmapDensityList.joinToString(" / ")
+            }
 }

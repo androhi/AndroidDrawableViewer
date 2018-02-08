@@ -192,14 +192,6 @@ class DrawableViewer(private val project: Project) : SimpleToolWindowPanel(true,
                 model.mipmapDensityList.add(Constants.DENSITY_XXXDPI)
             }
 
-            if (model.hasDrawable().not()) {
-                drawableDensityName += "-"
-            }
-
-            if (model.hasMipmap().not()) {
-                mipmapDensityName += "-"
-            }
-
             IconUtils.createSmallIcon(model.getLowDensityFilePath())?.let {
                 val iconLabel = JLabel().apply {
                     icon = it
@@ -211,14 +203,14 @@ class DrawableViewer(private val project: Project) : SimpleToolWindowPanel(true,
                 itemPanel.add(iconLabel)
 
                 val drawableLabel = JLabel().apply {
-                    text = model.getSupportedDrawableDensityName()
+                    text = "$drawableDensityName${model.getSupportedDrawableDensityName()}"
                     horizontalTextPosition = JLabel.LEFT
                     font = Font(Font.SANS_SERIF, Font.PLAIN, 12)
                 }
                 itemPanel.add(drawableLabel)
 
                 val mipmapLabel = JLabel().apply {
-                    text = model.getSupportedMipmapDensityName()
+                    text = "$mipmapDensityName${model.getSupportedMipmapDensityName()}"
                     horizontalTextPosition = JLabel.LEFT
                     font = Font(Font.SANS_SERIF, Font.PLAIN, 12)
                 }
