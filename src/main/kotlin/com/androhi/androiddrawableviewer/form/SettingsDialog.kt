@@ -51,9 +51,11 @@ class SettingsDialog(private val project: Project?) : DialogWrapper(project, tru
         }
         resDirText?.text = savedResDir
 
-        val selectDir = VirtualFileManager.getInstance().findFileByUrl(savedResDir)
         val fileChooserDescriptor = FileChooserDescriptor(false, true, false, false, false, false)
-        fileChooserDescriptor.setRoots(selectDir)
+        val selectDir = VirtualFileManager.getInstance().findFileByUrl(savedResDir)
+        selectDir?.let {
+            fileChooserDescriptor.setRoots(selectDir)
+        }
         resDirText?.addBrowseFolderListener(TextBrowseFolderListener(fileChooserDescriptor, project))
         
         checkDrawableMdpi?.isSelected = pluginConfig?.isDrawableMdpi == true
