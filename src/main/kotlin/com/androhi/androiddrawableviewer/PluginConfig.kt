@@ -15,7 +15,10 @@ import com.intellij.util.xmlb.XmlSerializerUtil
 
 class PluginConfig : PersistentStateComponent<PluginConfig> {
 
+    @Deprecated("It will be deleted")
     var resDir: String? = null
+
+    var srcDir: String? = null
 
     var isDrawableMdpi = false
     var isDrawableHdpi = false

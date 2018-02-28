@@ -1,6 +1,7 @@
 package com.androhi.androiddrawableviewer.form
 
 import com.androhi.androiddrawableviewer.Constants
+import com.androhi.androiddrawableviewer.PluginConfig
 import com.androhi.androiddrawableviewer.action.EditTargetResDirAction
 import com.androhi.androiddrawableviewer.model.DrawableModel
 import com.androhi.androiddrawableviewer.utils.IconUtils
@@ -47,8 +48,9 @@ class DrawableViewer(private val project: Project) : SimpleToolWindowPanel(true,
     }
 
     private fun createDrawableModelList() {
-        val imageFileList = getNewFileList(project.basePath + "/app/src")
-        // 重複を省いたファイル名リスト
+        val pluginConfig = PluginConfig.getInstance(project)
+        val srcDir = pluginConfig.srcDir ?: project.basePath + Constants.DEFAULT_SOURCE_PATH
+        val imageFileList = getNewFileList(srcDir)
         val fileNameList = imageFileList.map { it.name }.filter { isImageFile(it) }.distinct()
         fileNameList.forEach { fileName ->
             val model = DrawableModel.create(fileName, imageFileList)

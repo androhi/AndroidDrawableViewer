@@ -17,7 +17,7 @@ import javax.swing.JPanel
 class SettingsDialog(private val project: Project?) : DialogWrapper(project, true) {
 
     private var mainPanel: JPanel? = null
-    private var resDirText: TextFieldWithBrowseButton? = null
+    private var srcDirText: TextFieldWithBrowseButton? = null
     private var pluginConfig: PluginConfig? = null
 
     private var checkDrawableMdpi: JCheckBox? = null
@@ -47,16 +47,16 @@ class SettingsDialog(private val project: Project?) : DialogWrapper(project, tru
 
         var savedResDir = pluginConfig?.resDir
         if (savedResDir == null) {
-            savedResDir = project.basePath + Constants.DEFAULT_RESOURCE_PATH
+            savedResDir = project.basePath + Constants.DEFAULT_SOURCE_PATH
         }
-        resDirText?.text = savedResDir
+        srcDirText?.text = savedResDir
 
         val fileChooserDescriptor = FileChooserDescriptor(false, true, false, false, false, false)
         val selectDir = VirtualFileManager.getInstance().findFileByUrl(savedResDir)
         selectDir?.let {
             fileChooserDescriptor.setRoots(selectDir)
         }
-        resDirText?.addBrowseFolderListener(TextBrowseFolderListener(fileChooserDescriptor, project))
+        srcDirText?.addBrowseFolderListener(TextBrowseFolderListener(fileChooserDescriptor, project))
         
         checkDrawableMdpi?.isSelected = pluginConfig?.isDrawableMdpi == true
         checkDrawableHdpi?.isSelected = pluginConfig?.isDrawableHdpi == true
@@ -74,9 +74,9 @@ class SettingsDialog(private val project: Project?) : DialogWrapper(project, tru
     override fun createCenterPanel(): JComponent? = mainPanel
 
     override fun doValidate(): ValidationInfo? {
-        val resDir = resDirText?.text
-        if (resDir.isNullOrEmpty()) {
-            return ValidationInfo("Select resource directory.")
+        val srcDir = srcDirText?.text
+        if (srcDir.isNullOrEmpty()) {
+            return ValidationInfo("Select source directory.")
         }
 
         if (hasUncheckedDir()) {
@@ -95,7 +95,8 @@ class SettingsDialog(private val project: Project?) : DialogWrapper(project, tru
         super.doOKAction()
 
         pluginConfig?.let {
-            it.resDir = resDirText?.text
+            it.resDir = null
+            it.srcDir = srcDirText?.text
 
             it.isDrawableMdpi = checkDrawableMdpi?.isSelected == true
             it.isDrawableHdpi = checkDrawableHdpi?.isSelected == true

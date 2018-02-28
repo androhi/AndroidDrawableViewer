@@ -4,7 +4,7 @@ class Constants {
     companion object {
         const val TOOL_WINDOW_ID = "Drawable Viewer"
 
-        const val DEFAULT_RESOURCE_PATH = "/app/src/main/res"
+        const val DEFAULT_SOURCE_PATH = "/app/src"
 
         const val DRAWABLE_PREFIX = "drawable-"
         const val MIPMAP_PREFIX = "mipmap-"
