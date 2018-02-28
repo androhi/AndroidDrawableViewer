@@ -1,7 +1,6 @@
 package com.androhi.androiddrawableviewer.form
 
 import com.androhi.androiddrawableviewer.Constants
-import com.androhi.androiddrawableviewer.PluginConfig
 import com.androhi.androiddrawableviewer.action.EditTargetResDirAction
 import com.androhi.androiddrawableviewer.model.DrawableModel
 import com.androhi.androiddrawableviewer.utils.IconUtils
@@ -23,18 +22,6 @@ import javax.swing.border.EmptyBorder
 
 class DrawableViewer(private val project: Project) : SimpleToolWindowPanel(true, true), ActionListener {
 
-    private var drawableMdpiFileList: Array<File>? = null
-    private var drawableHdpiFileList: Array<File>? = null
-    private var drawableXhdpiFileList: Array<File>? = null
-    private var drawableXxhdpiFileList: Array<File>? = null
-    private var drawableXxxhdpiFileList: Array<File>? = null
-    private var mipmapMdpiFileList: Array<File>? = null
-    private var mipmapHdpiFileList: Array<File>? = null
-    private var mipmapXhdpiFileList: Array<File>? = null
-    private var mipmapXxhdpiFileList: Array<File>? = null
-    private var mipmapXxxhdpiFileList: Array<File>? = null
-
-    private val fileNameList = mutableListOf<String>()
     private val drawableModelList = mutableListOf<DrawableModel>()
     private var items = JBList(emptyList<JPanel>())
 
@@ -55,147 +42,77 @@ class DrawableViewer(private val project: Project) : SimpleToolWindowPanel(true,
     }
 
     private fun createContentPanel(): JScrollPane {
-        val pluginConfig = PluginConfig.getInstance(project)
-        val resDirPath = pluginConfig.resDir ?: project.basePath + Constants.DEFAULT_RESOURCE_PATH
-        val baseDrawableDirPath = resDirPath + Constants.PATH_SEPARATOR + Constants.DRAWABLE_PREFIX
-        val baseMipmapDirPath = resDirPath + Constants.PATH_SEPARATOR + Constants.MIPMAP_PREFIX
-
-        // drawable
-        if (pluginConfig.isDrawableMdpi) {
-            drawableMdpiFileList = getFileList(baseDrawableDirPath + Constants.DENSITY_MDPI)
-            saveFileName(drawableMdpiFileList)
-        }
-
-        if (pluginConfig.isDrawableHdpi) {
-            drawableHdpiFileList = getFileList(baseDrawableDirPath + Constants.DENSITY_HDPI)
-            saveFileName(drawableHdpiFileList)
-        }
-
-        if (pluginConfig.isDrawableXhdpi) {
-            drawableXhdpiFileList = getFileList(baseDrawableDirPath + Constants.DENSITY_XDPI)
-            saveFileName(drawableXhdpiFileList)
-        }
-
-        if (pluginConfig.isDrawableXxhdpi) {
-            drawableXxhdpiFileList = getFileList(baseDrawableDirPath + Constants.DENSITY_XXDPI)
-            saveFileName(drawableXxhdpiFileList)
-        }
-
-        if (pluginConfig.isDrawableXxxhdpi) {
-            drawableXxxhdpiFileList = getFileList(baseDrawableDirPath + Constants.DENSITY_XXXDPI)
-            saveFileName(drawableXxxhdpiFileList)
-        }
-
-        // mipmap
-        if (pluginConfig.isMipmapMdpi) {
-            mipmapMdpiFileList = getFileList(baseMipmapDirPath + Constants.DENSITY_MDPI)
-            saveFileName(mipmapMdpiFileList)
-        }
-
-        if (pluginConfig.isMipmapHdpi) {
-            mipmapHdpiFileList = getFileList(baseMipmapDirPath + Constants.DENSITY_HDPI)
-            saveFileName(mipmapHdpiFileList)
-        }
-
-        if (pluginConfig.isMipmapXhdpi) {
-            mipmapXhdpiFileList = getFileList(baseMipmapDirPath + Constants.DENSITY_XDPI)
-            saveFileName(mipmapXhdpiFileList)
-        }
-
-        if (pluginConfig.isMipmapXxhdpi) {
-            mipmapXxhdpiFileList = getFileList(baseMipmapDirPath + Constants.DENSITY_XXDPI)
-            saveFileName(mipmapXxhdpiFileList)
-        }
-
-        if (pluginConfig.isMipmapXxxhdpi) {
-            mipmapXxxhdpiFileList = getFileList(baseMipmapDirPath + Constants.DENSITY_XXXDPI)
-            saveFileName(mipmapXxxhdpiFileList)
-        }
-
-        return createScrollPane(createPanels(resDirPath))
+        createDrawableModelList()
+        return createScrollPane(createPanels())
     }
 
-    private fun getFileList(targetDirPath: String): Array<File> {
-        val targetDir = File(targetDirPath)
-        return try {
-            if (targetDir.exists()) {
-                targetDir.listFiles()
-            } else {
-                emptyArray()
-            }
-        } catch (e: SecurityException) {
-            emptyArray()
+    private fun createDrawableModelList() {
+        val imageFileList = getNewFileList(project.basePath + "/app/src")
+        // 重複を省いたファイル名リスト
+        val fileNameList = imageFileList.map { it.name }.filter { isImageFile(it) }.distinct()
+        fileNameList.forEach { fileName ->
+            val model = DrawableModel.create(fileName, imageFileList)
+            drawableModelList.add(model)
+            System.out.println(model.toString())
         }
     }
-
-    private fun saveFileName(fileList: Array<File>?) =
-            fileList?.map { it.name }?.filter { isImageFile(it) && isNotSavedFile(it) }?.let {
-                fileNameList.addAll(it)
-            }
 
     private fun isImageFile(fileName: String): Boolean =
             fileName.endsWith(Constants.PNG_SUFFIX) || fileName.endsWith(Constants.JPEG_SUFFIX)
 
-    private fun isNotSavedFile(fileName: String): Boolean =
-            fileNameList.find { it == fileName } == null
+    private fun getNewFileList(path: String): List<File> {
+        val targetDir = File(path)
+        if (!targetDir.exists()) {
+            return listOf()
+        }
 
-    private fun createPanels(resDirPath: String): Vector<JPanel> {
-        var drawableDensityName = "Drawable: "
-        var mipmapDensityName = "Mipmap: "
+        // find each flavor drawable. for example, "app/src/main/res" or "app/src/debug/res"
+        val parentDirList = targetDir.listFiles()
+        val imageFileList = mutableListOf<File>()
+        // search app/src directory
+        parentDirList.forEach {
+            // search app/src/[flavor] directory
+            if (it.isDirectory) {
+                val resDir = it.listFiles { dir, name -> dir.isDirectory && name == "res" }
+                if (resDir.isNotEmpty()) {
 
-        // FIXME: I must refactor. I want to use sealed class.
-        val panels = Vector<JPanel>(fileNameList.size)
-        fileNameList.forEach { fileName ->
+                    // search app/src/[flavor]/res/drawable-[any] directory
+                    val drawableDirList = resDir.first().listFiles { dir, name -> dir.isDirectory && name.startsWith("drawable") }
+                    drawableDirList.forEach {
+                        if (it.isDirectory) {
+                            imageFileList.addAll(it.listFiles())
+                        }
+                    }
+
+                    // search app/src/[flavor]/res/mipmap-[any] directory
+                    val mipmapDirList = resDir.first().listFiles { dir, name -> dir.isDirectory && name.startsWith("mipmap") }
+                    mipmapDirList.forEach {
+                        if (it.isDirectory) {
+                            imageFileList.addAll(it.listFiles())
+                        }
+                    }
+                }
+            }
+        }
+
+        return imageFileList
+    }
+
+    private fun createPanels(): Vector<JPanel> {
+        val drawableDensityName = "Drawable: "
+        val mipmapDensityName = "Mipmap: "
+
+        val panels = Vector<JPanel>(drawableModelList.size)
+        drawableModelList.forEach { model ->
             val itemPanel = JPanel().apply {
                 layout = GridLayout(3, 1, 0, 4)
                 border = EmptyBorder(10, 20, 10, 20)
-            }
-            val model = DrawableModel(resDirPath, fileName)
-
-            drawableMdpiFileList?.find { it.name == fileName }?.let {
-                model.drawableDensityList.add(Constants.DENSITY_MDPI)
-            }
-
-            drawableHdpiFileList?.find { it.name == fileName }?.let {
-                model.drawableDensityList.add(Constants.DENSITY_HDPI)
-            }
-
-            drawableXhdpiFileList?.find { it.name == fileName }?.let {
-                model.drawableDensityList.add(Constants.DENSITY_XDPI)
-            }
-
-            drawableXxhdpiFileList?.find { it.name == fileName }?.let {
-                model.drawableDensityList.add(Constants.DENSITY_XXDPI)
-            }
-
-            drawableXxxhdpiFileList?.find { it.name == fileName }?.let {
-                model.drawableDensityList.add(Constants.DENSITY_XXXDPI)
-            }
-
-            mipmapMdpiFileList?.find { it.name == fileName }?.let {
-                model.mipmapDensityList.add(Constants.DENSITY_MDPI)
-            }
-
-            mipmapHdpiFileList?.find { it.name == fileName }?.let {
-                model.mipmapDensityList.add(Constants.DENSITY_HDPI)
-            }
-
-            mipmapXhdpiFileList?.find { it.name == fileName }?.let {
-                model.mipmapDensityList.add(Constants.DENSITY_XDPI)
-            }
-
-            mipmapXxhdpiFileList?.find { it.name == fileName }?.let {
-                model.mipmapDensityList.add(Constants.DENSITY_XXDPI)
-            }
-
-            mipmapXxxhdpiFileList?.find { it.name == fileName }?.let {
-                model.mipmapDensityList.add(Constants.DENSITY_XXXDPI)
             }
 
             IconUtils.createSmallIcon(model.getLowDensityFilePath())?.let {
                 val iconLabel = JLabel().apply {
                     icon = it
-                    text = fileName
+                    text = model.fileName
                     horizontalAlignment = JLabel.LEFT
                     font = Font(Font.SANS_SERIF, Font.PLAIN, 14)
                     iconTextGap = 12
@@ -217,7 +134,6 @@ class DrawableViewer(private val project: Project) : SimpleToolWindowPanel(true,
                 itemPanel.add(mipmapLabel)
 
                 panels.add(itemPanel)
-                drawableModelList.add(model)
             }
         }
 

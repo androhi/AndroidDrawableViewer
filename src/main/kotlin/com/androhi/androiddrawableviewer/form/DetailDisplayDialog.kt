@@ -32,11 +32,11 @@ class DetailDisplayDialog(project: Project, drawableModel: DrawableModel) : Dial
     }
 
     private fun createContent(model: DrawableModel) {
-        addDisplayImage(model.resDirPath, model.fileName, Constants.DRAWABLE_PREFIX, model.drawableDensityList)
-        addDisplayImage(model.resDirPath, model.fileName, Constants.MIPMAP_PREFIX, model.mipmapDensityList)
+        addDisplayImage(model, model.fileName, Constants.DRAWABLE_PREFIX, model.drawableDensityList)
+        addDisplayImage(model, model.fileName, Constants.MIPMAP_PREFIX, model.mipmapDensityList)
     }
 
-    private fun addDisplayImage(baseDir: String, fileName: String, densityPrefix: String, densityList: List<String>) {
+    private fun addDisplayImage(model: DrawableModel, fileName: String, densityPrefix: String, densityList: List<String>) {
         if (densityList.isEmpty()) {
             return
         }
@@ -51,7 +51,8 @@ class DetailDisplayDialog(project: Project, drawableModel: DrawableModel) : Dial
             }
 
             val iconLabel = JLabel().apply {
-                val filePath = baseDir + Constants.PATH_SEPARATOR + densityPrefix + density + Constants.PATH_SEPARATOR + fileName
+                //val filePath = baseDir + Constants.PATH_SEPARATOR + densityPrefix + density + Constants.PATH_SEPARATOR + fileName
+                val filePath = model.getTargetDensityFilePath(density)
                 icon = IconUtils.createOriginalIcon(filePath)
                 border = SoftBevelBorder(SoftBevelBorder.LOWERED)
             }
