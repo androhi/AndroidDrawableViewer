@@ -50,19 +50,18 @@ class DrawableViewer(private val project: Project) : SimpleToolWindowPanel(true,
     private fun createDrawableModelList() {
         val pluginConfig = PluginConfig.getInstance(project)
         val srcDir = pluginConfig.srcDir ?: project.basePath + Constants.DEFAULT_SOURCE_PATH
-        val imageFileList = getNewFileList(srcDir)
+        val imageFileList = getNewFileList(srcDir, pluginConfig)
         val fileNameList = imageFileList.map { it.name }.filter { isImageFile(it) }.distinct()
         fileNameList.forEach { fileName ->
             val model = DrawableModel.create(fileName, imageFileList)
             drawableModelList.add(model)
-            System.out.println(model.toString())
         }
     }
 
     private fun isImageFile(fileName: String): Boolean =
             fileName.endsWith(Constants.PNG_SUFFIX) || fileName.endsWith(Constants.JPEG_SUFFIX)
 
-    private fun getNewFileList(path: String): List<File> {
+    private fun getNewFileList(path: String, config: PluginConfig): List<File> {
         val targetDir = File(path)
         if (!targetDir.exists()) {
             return listOf()
@@ -81,7 +80,7 @@ class DrawableViewer(private val project: Project) : SimpleToolWindowPanel(true,
                     // search app/src/[flavor]/res/drawable-[any] directory
                     val drawableDirList = resDir.first().listFiles { dir, name -> dir.isDirectory && name.startsWith("drawable") }
                     drawableDirList.forEach {
-                        if (it.isDirectory) {
+                        if (it.isDirectory && config.isAvailableDrawable(it.name)) {
                             imageFileList.addAll(it.listFiles())
                         }
                     }
@@ -89,7 +88,7 @@ class DrawableViewer(private val project: Project) : SimpleToolWindowPanel(true,
                     // search app/src/[flavor]/res/mipmap-[any] directory
                     val mipmapDirList = resDir.first().listFiles { dir, name -> dir.isDirectory && name.startsWith("mipmap") }
                     mipmapDirList.forEach {
-                        if (it.isDirectory) {
+                        if (it.isDirectory && config.isAvailableMipmap(it.name)) {
                             imageFileList.addAll(it.listFiles())
                         }
                     }

@@ -40,6 +40,24 @@ class PluginConfig : PersistentStateComponent<PluginConfig> {
         }
     }
 
+    fun isAvailableDrawable(dirName: String): Boolean = when {
+            dirName.contains("-mdpi", false) -> isDrawableMdpi
+            dirName.contains("-hdpi", false) -> isDrawableHdpi
+            dirName.contains("-xhdpi", false) -> isDrawableXhdpi
+            dirName.contains("-xxhdpi", false) -> isDrawableXxhdpi
+            dirName.contains("-xxxhdpi", false) -> isDrawableXxxhdpi
+            else -> true
+    }
+
+    fun isAvailableMipmap(dirName: String): Boolean = when {
+        dirName.contains("-mdpi", false) -> isMipmapMdpi
+        dirName.contains("-hdpi", false) -> isMipmapHdpi
+        dirName.contains("-xhdpi", false) -> isMipmapXhdpi
+        dirName.contains("-xxhdpi", false) -> isMipmapXxhdpi
+        dirName.contains("-xxxhdpi", false) -> isMipmapXxxhdpi
+        else -> true
+    }
+
     companion object {
         fun getInstance(project: Project): PluginConfig = ServiceManager.getService(project, PluginConfig::class.java)
     }
