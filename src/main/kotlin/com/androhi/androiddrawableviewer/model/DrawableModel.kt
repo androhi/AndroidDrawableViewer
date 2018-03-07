@@ -7,9 +7,9 @@ import com.androhi.androiddrawableviewer.Constants.Companion.MIPMAP_RESOURCE_NAM
 import com.androhi.androiddrawableviewer.Constants.Companion.PATH_SEPARATOR
 import java.io.File
 
-class DrawableModel private constructor(val fileName: String, private val filePathList: List<String>) {
-    var drawableDensityList = mutableListOf<String>()
-    var mipmapDensityList = mutableListOf<String>()
+class DrawableModel private constructor(val fileName: String, val filePathList: List<String>) {
+    var drawableDensityMap = mutableMapOf<String, MutableList<String>>()
+    var mipmapDensityMap = mutableMapOf<String, MutableList<String>>()
 
     init {
         filePathList.forEach { filePath ->
@@ -17,52 +17,46 @@ class DrawableModel private constructor(val fileName: String, private val filePa
             // generate drawable density list
             val pathArray = filePath.split(PATH_SEPARATOR)
             val drawableDirName = pathArray.find { it.startsWith(DRAWABLE_RESOURCE_NAME) }
-            val drawableDensity = if (drawableDirName?.contains("-", false) == true) {
-                drawableDirName.replace(DRAWABLE_PREFIX, "", false)
-            } else {
-                drawableDirName
-            }
-            drawableDensity?.let {
-                drawableDensityList.add(it)
+            drawableDirName?.let {
+                val drawableFlavor = pathArray[pathArray.indexOf(it) - 2]
+                val drawableDensity = when {
+                    it.contains("-", false) -> it.replace(DRAWABLE_PREFIX, "", false)
+                    else -> it
+                }
+                val densityList = drawableDensityMap[drawableFlavor]
+                densityList?.add(drawableDensity) ?: drawableDensityMap.put(drawableFlavor, mutableListOf(drawableDensity))
             }
 
             // generate mipmap density list
             val mipmapDirName = pathArray.find { it.startsWith(MIPMAP_RESOURCE_NAME) }
-            val mipmapDensity = if (mipmapDirName?.contains("-", false) == true) {
-                mipmapDirName.replace(MIPMAP_PREFIX, "", false)
-            } else {
-                mipmapDirName
-            }
-            mipmapDensity?.let {
-                mipmapDensityList.add(it)
+            mipmapDirName?.let {
+                val mipmapFlavor = pathArray[pathArray.indexOf(it) - 2]
+                val mipmapDensity = when {
+                    it.contains("-", false) -> it.replace(MIPMAP_PREFIX, "", false)
+                    else -> it
+                }
+                val densityList = mipmapDensityMap[mipmapFlavor]
+                densityList?.add(mipmapDensity) ?: mipmapDensityMap.put(mipmapFlavor, mutableListOf(mipmapDensity))
             }
         }
     }
-
-    fun hasDrawable() = drawableDensityList.isNotEmpty()
-
-    fun hasMipmap() = mipmapDensityList.isNotEmpty()
 
     fun getLowDensityFilePath(): String {
         return filePathList[0]
     }
 
-    fun getTargetDensityFilePath(density: String): String {
-        return filePathList.first { it.contains(density, false) }
-    }
-
     fun getSupportedDrawableDensityName(): String =
-            if (drawableDensityList.isEmpty()) {
+            if (drawableDensityMap.isEmpty()) {
                 "-"
             } else {
-                drawableDensityList.joinToString(" / ")
+                drawableDensityMap.map { "${it.key}:[${it.value.joinToString("/")}]" }.joinToString(", ")
             }
 
     fun getSupportedMipmapDensityName(): String =
-            if (mipmapDensityList.isEmpty()) {
+            if (mipmapDensityMap.isEmpty()) {
                 "-"
             } else {
-                mipmapDensityList.joinToString(" / ")
+                mipmapDensityMap.map { "${it.key}:[${it.value.joinToString("/")}]" }.joinToString(", ")
             }
 
     override fun toString(): String {
