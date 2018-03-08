@@ -51,7 +51,7 @@ class DetailDisplayDialog(project: Project, drawableModel: DrawableModel) : Dial
         }
 
         var oldPanel: JPanel? = null
-        var panelWidth = 0
+        var panelWidth = HORIZONTAL_PADDING
         var panelHeight = 0
 
         mainPanel?.add(createScrollPane(), BorderLayout.CENTER)
@@ -77,7 +77,7 @@ class DetailDisplayDialog(project: Project, drawableModel: DrawableModel) : Dial
 
             updateContainer(panel, oldPanel)
 
-            panelWidth += panel.width
+            panelWidth += (panel.width + HORIZONTAL_PADDING)
             if (panelHeight < panel.height) {
                 panelHeight = panel.height
             }
@@ -105,18 +105,23 @@ class DetailDisplayDialog(project: Project, drawableModel: DrawableModel) : Dial
         val e2 = if (oldPanel == null) SpringLayout.WEST else SpringLayout.EAST
         val c2 = if (oldPanel == null) subPanel else oldPanel
         springLayout?.run {
-            putConstraint(SpringLayout.NORTH, newPanel, 8, SpringLayout.NORTH, subPanel)
-            putConstraint(SpringLayout.WEST, newPanel, 16, e2, c2)
+            putConstraint(SpringLayout.NORTH, newPanel, VERTICAL_PADDING, SpringLayout.NORTH, subPanel)
+            putConstraint(SpringLayout.WEST, newPanel, HORIZONTAL_PADDING, e2, c2)
         }
         subPanel.add(newPanel)
         subPanel.doLayout()
     }
 
     private fun setContainerSize(width: Int, height: Int) {
-        subPanel.preferredSize = Dimension(width + 32, height + 16)
+        subPanel.preferredSize = Dimension(width, height + VERTICAL_PADDING * 2)
     }
 
     override fun createCenterPanel(): JComponent? = mainPanel
 
     override fun createActions(): Array<Action> = Array(1) { DialogWrapperExitAction("OK", OK_EXIT_CODE) }
+
+    companion object {
+        private const val VERTICAL_PADDING = 8
+        private const val HORIZONTAL_PADDING = 16
+    }
 }
