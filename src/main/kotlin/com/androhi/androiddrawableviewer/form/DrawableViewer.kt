@@ -56,6 +56,7 @@ class DrawableViewer(private val project: Project) : SimpleToolWindowPanel(true,
             val model = DrawableModel.create(fileName, imageFileList)
             drawableModelList.add(model)
         }
+        drawableModelList.sortBy { it.fileName }
     }
 
     private fun isImageFile(fileName: String): Boolean =
