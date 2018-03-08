@@ -13,7 +13,7 @@
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Resource root"/>
+          <text value="Source root"/>
         </properties>
       </component>
       <grid id="a3cb7" layout-manager="GridLayoutManager" row-count="1" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -74,7 +74,7 @@
           <text value="Valid drawable folder"/>
         </properties>
       </component>
-      <component id="e291e" class="com.intellij.openapi.ui.TextFieldWithBrowseButton" binding="resDirText">
+      <component id="e291e" class="com.intellij.openapi.ui.TextFieldWithBrowseButton" binding="srcDirText">
         <constraints>
           <grid row="1" column="0" row-span="2" col-span="6" vsize-policy="3" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="400" height="-1"/>

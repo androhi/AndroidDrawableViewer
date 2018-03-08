@@ -15,7 +15,10 @@ import com.intellij.util.xmlb.XmlSerializerUtil
 
 class PluginConfig : PersistentStateComponent<PluginConfig> {
 
+    @Deprecated("It will be deleted")
     var resDir: String? = null
+
+    var srcDir: String? = null
 
     var isDrawableMdpi = false
     var isDrawableHdpi = false
@@ -35,6 +38,24 @@ class PluginConfig : PersistentStateComponent<PluginConfig> {
         pluginConfig?.let {
             XmlSerializerUtil.copyBean(it, this)
         }
+    }
+
+    fun isAvailableDrawable(dirName: String): Boolean = when {
+            dirName.contains("-mdpi", false) -> isDrawableMdpi
+            dirName.contains("-hdpi", false) -> isDrawableHdpi
+            dirName.contains("-xhdpi", false) -> isDrawableXhdpi
+            dirName.contains("-xxhdpi", false) -> isDrawableXxhdpi
+            dirName.contains("-xxxhdpi", false) -> isDrawableXxxhdpi
+            else -> true
+    }
+
+    fun isAvailableMipmap(dirName: String): Boolean = when {
+        dirName.contains("-mdpi", false) -> isMipmapMdpi
+        dirName.contains("-hdpi", false) -> isMipmapHdpi
+        dirName.contains("-xhdpi", false) -> isMipmapXhdpi
+        dirName.contains("-xxhdpi", false) -> isMipmapXxhdpi
+        dirName.contains("-xxxhdpi", false) -> isMipmapXxxhdpi
+        else -> true
     }
 
     companion object {
